@@ -1,0 +1,3 @@
+<x-FrontendLayout>
+			
+</x-FrontendLayout>

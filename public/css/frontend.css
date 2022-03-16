@@ -1,0 +1,205 @@
+.btn {
+  outline: none !important;
+  vertical-align: middle;
+  -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease; }
+  .btn i {
+    -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease; }
+  .btn:hover:not(.btn-text), .btn:focus:not(.btn-text), .btn.focus {
+    -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease; }
+    .btn:hover:not(.btn-text) i, .btn:focus:not(.btn-text) i, .btn.focus i {
+      -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease; }
+  .btn.disabled, .btn:disabled {
+    -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease; }
+    .btn.disabled i, .btn:disabled i {
+      -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease; }
+  .btn:not(:disabled):not(.disabled):active:not(.btn-text), .btn:not(:disabled):not(.disabled).active,
+  .show > .btn.dropdown-toggle {
+    -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease; }
+    .btn:not(:disabled):not(.disabled):active:not(.btn-text) i, .btn:not(:disabled):not(.disabled).active i,
+    .show > .btn.dropdown-toggle i {
+      -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease; }
+  .btn:focus:not(.btn-shadow):not(.btn-shadow-hover) {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important; }
+  .btn.btn-square {
+    border-radius: 0; }
+  .btn.btn-pill {
+    border-radius: 2rem; }
+  .btn.btn-text {
+    cursor: text; }
+  .btn:not(.btn-text) {
+    cursor: pointer; }
+  .btn.btn-borderless {
+    border-color: transparent; }
+
+.btn i {
+  font-size: 1.3rem;
+  padding-right: 0.35rem;
+  vertical-align: middle;
+  line-height: 1;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex; }
+
+.btn .svg-icon {
+  margin-right: 0.5rem; }
+  .btn .svg-icon svg {
+    height: 18px;
+    width: 18px; }
+
+.btn.btn-xs i {
+  font-size: 1rem;
+  padding-right: 0.3rem; }
+
+.btn.btn-xs .svg-icon {
+  margin-right: 0.3rem; }
+  .btn.btn-xs .svg-icon svg {
+    height: 16px;
+    width: 16px; }
+
+.btn.btn-sm i, .btn-group-sm > .btn i {
+  font-size: 1.3rem;
+  padding-right: 0.35rem; }
+
+.btn.btn-sm .svg-icon, .btn-group-sm > .btn .svg-icon {
+  margin-right: 0.35rem; }
+  .btn.btn-sm .svg-icon svg, .btn-group-sm > .btn .svg-icon svg {
+    height: 16px;
+    width: 16px; }
+
+.btn.btn-lg i, .btn-group-lg > .btn i {
+  font-size: 1.5rem;
+  padding-right: 0.75rem; }
+
+.btn.btn-lg .svg-icon, .btn-group-lg > .btn .svg-icon {
+  margin-right: 0.75rem; }
+  .btn.btn-lg .svg-icon svg, .btn-group-lg > .btn .svg-icon svg {
+    height: 20px;
+    width: 20px; }
+
+.btn.btn-icon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0;
+  height: calc(1.5em + 1.3rem + 2px);
+  width: calc(1.5em + 1.3rem + 2px); }
+  .btn.btn-icon.btn-xs {
+    height: 24px;
+    width: 24px; }
+  .btn.btn-icon.btn-sm, .btn-group-sm > .btn.btn-icon {
+    height: calc(1.35em + 1.1rem + 2px);
+    width: calc(1.35em + 1.1rem + 2px); }
+  .btn.btn-icon.btn-lg, .btn-group-lg > .btn.btn-icon {
+    height: calc(1.5em + 1.65rem + 2px);
+    width: calc(1.5em + 1.65rem + 2px); }
+  .btn.btn-icon.btn-circle {
+    border-radius: 50%; }
+  .btn.btn-icon i {
+    padding: 0;
+    margin: 0; }
+  .btn.btn-icon [class^="socicon-"]:before,
+  .btn.btn-icon [class*=" socicon-"]:before {
+    line-height: 1; }
+  .btn.btn-icon .svg-icon {
+    margin: 0;
+    padding: 0; }
+
+.btn.btn-fixed-height {
+  padding-top: 0;
+  padding-bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  .btn.btn-fixed-height.btn {
+    height: calc(1.5em + 1.3rem + 2px); }
+  .btn.btn-fixed-height.btn-sm, .btn-group-sm > .btn.btn-fixed-height {
+    height: calc(1.35em + 1.1rem + 2px); }
+  .btn.btn-fixed-height.btn-lg, .btn-group-lg > .btn.btn-fixed-height {
+    height: calc(1.5em + 1.65rem + 2px); }
+
+    .btn-light-success{
+        color: #1BC5BD;
+        background-color: #C9F7F5;
+        border-color: transparent;
+    }
+    .btn-light-success i{
+        color: #1BC5BD;
+    }
+    .btn-light-danger{
+        color: #F64E60;
+        background-color: #FFE2E5;
+        border-color: transparent;
+    }
+
+    .btn-light-danger i{
+        color: #F64E60;
+    }
+    .page-search, .page-title, .user-dashboard-menu li.active a{
+        background: #363839;
+        color: white;
+    }
+
+    .bc{
+        background: #232425;
+    }
+    .navbar-light .navbar-nav .nav-link, .footer .block ul li a{
+        color: white;
+    }
+    .main-nav .nav-item.active .nav-link, .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover, .footer .block ul li a:hover{
+        color: #28a745;
+    }
+
+    .user-dashboard-menu li button {
+    	padding: 10px;
+        font-size: 15px;
+        display: block;
+        font-weight: 600;
+        color: #555;
+    }
+    
+    .required:after {
+    content: "*";
+    position: relative;
+    font-size: inherit;
+    color: #f1416c;
+    padding-left: 0.25rem;
+    font-weight: 700;
+}
+
+.invalid-feedback{
+	display: block;
+}
