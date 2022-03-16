@@ -77,7 +77,7 @@
 					</span>
 					<div class="menu-sub menu-sub-accordion menu-active-bg">
 					
-						<div class="menu-item">
+						{{--<div class="menu-item">
 							<a class="menu-link {{ request()->routeIs('admin.categories*') ? 'active' : '' }}" href="{{ route('admin.categories') }}">
 								<span class="menu-bullet">
 									<span class="bullet bullet-dot"></span>
@@ -103,7 +103,7 @@
 								<span class="menu-title">Size</span>
 							</a>
 						</div>
-						
+						--}}
 						
 						<div class="menu-item">
 							<a class="menu-link {{ request()->routeIs('admin.users*') ? 'active' : '' }}" href="{{ route('admin.users') }}">
@@ -123,6 +123,16 @@
 							</a>
 						</div>
 						
+						<div class="menu-item">
+							<a class="menu-link {{ request()->routeIs('admin.services*') ? 'active' : '' }}" href="{{ route('admin.services') }}">
+								<span class="menu-bullet">
+									<span class="bullet bullet-dot"></span>
+								</span>
+								<span class="menu-title">Services</span>
+							</a>
+						</div>
+						
+						{{--
 						<div class="menu-item">
 							<a class="menu-link {{ request()->routeIs('admin.products*') ? 'active' : '' }}" href="{{ route('admin.products') }}">
 								<span class="menu-bullet">
@@ -149,7 +159,7 @@
 								<span class="menu-title">Invoices</span>
 							</a>
 						</div>
-						
+							--}}
 					{{--	<div class="menu-item">
 							<a class="menu-link" href="#">
 								<span class="menu-bullet">

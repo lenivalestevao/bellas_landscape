@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Page;
 
 class FrontendController extends Controller
 {
@@ -24,13 +25,22 @@ class FrontendController extends Controller
     }
     
     public function about_us(Request $request){
-        return view('frontend.about.index'); 
+        $page = Page::where('slug','about-us')->get()->first();
+        return view('frontend.about-us.index', compact('page')); 
     }
     
     public function contact_us(Request $request){
         return view('frontend.contact.index'); 
     }
     
+    public function portfolio(Request $request){
+        return view('frontend.portfolio.index');
+    }
+    
+    public function our_services(Request $request){
+        return view('frontend.service.index');
+    }
+        
     public function shop(Request $request){
         $view = $request->input('view','grid');
         $category = $request->input('category', null);

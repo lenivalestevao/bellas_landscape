@@ -91,7 +91,6 @@
                                 </a>
                                 <!--begin::Menu-->
                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-80px py-4" data-kt-menu="true">
-                                    
                                     <div class="menu-item px-3">
                                         <a href='{{ route($route_name.".edit", $t->id )}}' class="btn btn-light-warning btn-icon mb-2">
                                             <i class="far fa-edit"></i>

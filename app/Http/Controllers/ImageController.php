@@ -18,7 +18,10 @@ class ImageController extends Controller
         
         if ($request->has('type') && $request->type == 'logo') {
             $img = ImageIntervention::cache(function ($image) use ($request) {
-                $image->make(storage_path("{$this->default_dir}gmo3.png"))->fit($request->size);
+                if($request->size)
+                    $image->make(storage_path("{$this->default_dir}gmo3.png"))->fit($request->size);
+               else 
+                   $image->make(storage_path("{$this->default_dir}gmo3.png"))->resize(intval($request->width), intval($request->height));
             }, 1440, true);
             $img->invert();
             $img->encode('png', 100);
@@ -33,7 +36,12 @@ class ImageController extends Controller
         
         $ext = explode(".", $_image->src)[1];
         $img = ImageIntervention::cache(function ($image) use ($request, $_image) {
+            
+        if($request->size)
             $image->make(storage_path('app'.DIRECTORY_SEPARATOR.$_image->src))->fit($request->size);
+        else
+            $image->make(storage_path('app'.DIRECTORY_SEPARATOR.$_image->src))->resize(intval($request->width), intval($request->height));;
+            
         }, 1440, true);
 
         $img->encode($ext, 100);

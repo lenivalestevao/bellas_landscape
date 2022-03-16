@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminColorsController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminPagesController;
 use App\Http\Controllers\Admin\AdminProductsController;
+use App\Http\Controllers\Admin\AdminServicesController;
 use App\Http\Controllers\Admin\AdminSizesController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -29,8 +30,10 @@ Route::get('refresh/captcha', function(){
 })->name('api.refresh.captcha');
 
 Route::get('/', FrontendController::class)->name('frontend.home');
-// Route::get('/about-us', [FrontendController::class, "about_us"])->name('frontend.about_us');
-// Route::get('/contact-us', [FrontendController::class, "contact_us"])->name('frontend.contact_us');
+Route::get('/about-us', [FrontendController::class, "about_us"])->name('frontend.about_us');
+Route::get('/contact-us', [FrontendController::class, "contact_us"])->name('frontend.contact_us');
+Route::get('/portfolio', [FrontendController::class, "portfolio"])->name('frontend.portfolio');
+Route::get('/our-services', [FrontendController::class, "our_services"])->name('frontend.our_services');
 
 // Route::get('/shop', [FrontendController::class, "shop"])->name('frontend.shop');
 
@@ -115,4 +118,14 @@ Route::middleware(['auth', 'role:super'])->prefix('admin')->name('admin.')->grou
     Route::post('products/{product}/update', [AdminProductsController::class, 'update'])->name('products.update');
     Route::delete('products/{product}/destroy', [AdminProductsController::class, 'destroy'])->name('products.destroy');
     //     end::::ROUTE PRODUCTS
+    
+    
+    //     begin::::ROUTE SERVICES
+    Route::get('/services', AdminServicesController::class)->name('services');
+    Route::get('services/create', [AdminServicesController::class, 'create'])->name('services.create');
+    Route::post('services/store', [AdminServicesController::class, 'store'])->name('services.store');
+    Route::get('{service}/service', [AdminServicesController::class, 'edit'])->name('services.edit');
+    Route::post('services/{service}/update', [AdminServicesController::class, 'update'])->name('services.update');
+    Route::delete('services/{service}/destroy', [AdminServicesController::class, 'destroy'])->name('services.destroy');
+    //     end::::ROUTE SERVICES
 });

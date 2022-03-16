@@ -6,7 +6,6 @@
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-
          @if(View::hasSection('meta_name'))
             <title>@yield('meta_name')</title>
             <meta name="description" content="@yield('meta_description')">
@@ -29,7 +28,26 @@
             <meta property="twitter:description" content="@yield('meta_description')">
             <meta property="twitter:image:src" content="@yield('meta_image')">
         @else
-        	 <title>Bellas Landscape & Concrete</title>
+        	<title>{{ $wb_setting->title }}</title>
+            <meta name="description" content="{{ $wb_setting->description }}">
+            <meta name="image" content="">
+            <!-- Schema.org for Google -->
+            <meta itemprop="name" content="{{ $wb_setting->title }}">
+            <meta itemprop="description" content="{{ $wb_setting->description }}">
+            <meta itemprop="image" content="">
+            <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+            <meta property="og:title" content="{{ $wb_setting->title }}">
+            <meta property="og:description" content="{{ $wb_setting->description }}">
+            <meta property="og:image" content="">
+            
+            <meta property="og:site_name" content="{{ $wb_setting->title }}">
+            <meta property="og:locale" content="en_US">
+            <meta property="og:type" content="website">
+            <!-- Twitter -->
+            <meta property="twitter:card" content="summary">
+            <meta property="twitter:title" content="{{ $wb_setting->title }}">
+            <meta property="twitter:description" content="{{ $wb_setting->description }}">
+            <meta property="twitter:image:src" content="">
         @endif
 
 
@@ -76,7 +94,7 @@
 									</button>
 									<!--end::Mobile menu toggle-->
 									<!--begin::Logo image-->
-									<a href="landing.html">
+									<a href="{{ route('frontend.home') }}">
 										<img alt="Logo" src="assets/media/logos/logo-landing.svg" class="logo-default h-25px h-lg-30px" />
 										<img alt="Logo" src="assets/media/logos/logo-landing-dark.svg" class="logo-sticky h-20px h-lg-25px" />
 									</a>
@@ -91,31 +109,42 @@
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
-												<a class="menu-link nav-link active py-3 px-4 px-xxl-6" href="#kt_body" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Home</a>
+												<a class="menu-link nav-link active py-3 px-4 px-xxl-6" href="{{ route('frontend.home') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Home</a>
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
-												<a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#how-it-works" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Our Services</a>
+												<a class="menu-link nav-link py-3 px-4 px-xxl-6" href="{{ route('frontend.our_services') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Our Services</a>
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
-												<a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#achievements" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Porfifolio</a>
+												<a class="menu-link nav-link py-3 px-4 px-xxl-6" href="{{ route('frontend.portfolio') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Porfifolio</a>
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
+											
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
-												<a class="menu-link nav-link py-3 px-4 px-xxl-6" href="#team" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Contact</a>
+												<a class="menu-link nav-link py-3 px-4 px-xxl-6" href="{{ route('frontend.about_us') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">About US</a>
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
+											
+											<!--begin::Menu item-->
+											<div class="menu-item">
+												<!--begin::Menu link-->
+												<a class="menu-link nav-link py-3 px-4 px-xxl-6" href="{{ route('frontend.contact_us') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Contact</a>
+												<!--end::Menu link-->
+											</div>
+											<!--end::Menu item-->
+											
+											
 										
 										</div>
 										<!--end::Menu-->
@@ -145,13 +174,19 @@
 			</div>
 			<!--end::Header Section-->
 			
-			{{ $slot }}
-			
+			<!--begin::How It Works Section-->
+			<div class="mb-n10 z-index-2 pb-20">
+				<!--begin::Container-->
+				<div class="container">
+					{{ $slot }}
+				</div>
+			</div>
 			
 			<!--begin::Footer Section-->
 			<div class="mb-0">
 				<!--begin::Curve top-->
-				<div class="landing-curve landing-dark-color">
+				
+				<div class="landing-curve landing-dark-color mt-10 mt-lg-20">
 					<svg viewBox="15 -1 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M1 48C4.93573 47.6644 8.85984 47.3311 12.7725 47H1489.16C1493.1 47.3311 1497.04 47.6644 1501 48V47H1489.16C914.668 -1.34764 587.282 -1.61174 12.7725 47H1V48Z" fill="currentColor"></path>
 					</svg>
@@ -193,64 +228,40 @@
 							<div class="col-lg-6 ps-lg-16">
 								<!--begin::Navs-->
 								<div class="d-flex justify-content-center">
-									<!--begin::Links-->
-									<div class="d-flex fw-bold flex-column me-20">
-										<!--begin::Subtitle-->
-										<h4 class="fw-bolder text-gray-400 mb-6">More for Metronic</h4>
-										<!--end::Subtitle-->
-										<!--begin::Link-->
-										<a href="#" class="text-white opacity-50 text-hover-primary fs-5 mb-6">FAQ</a>
-										<!--end::Link-->
-										<!--begin::Link-->
-										<a href="#" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Documentaions</a>
-										<!--end::Link-->
-										<!--begin::Link-->
-										<a href="#" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Video Tuts</a>
-										<!--end::Link-->
-										<!--begin::Link-->
-										<a href="#" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Changelog</a>
-										<!--end::Link-->
-										<!--begin::Link-->
-										<a href="#" class="text-white opacity-50 text-hover-primary fs-5 mb-6">Github</a>
-										<!--end::Link-->
-										<!--begin::Link-->
-										<a href="#" class="text-white opacity-50 text-hover-primary fs-5">Tutorials</a>
-										<!--end::Link-->
-									</div>
-									<!--end::Links-->
+						
 									<!--begin::Links-->
 									<div class="d-flex fw-bold flex-column ms-lg-20">
 										<!--begin::Subtitle-->
 										<h4 class="fw-bolder text-gray-400 mb-6">Stay Connected</h4>
 										<!--end::Subtitle-->
+										
 										<!--begin::Link-->
 										<a href="#" class="mb-6">
-											<img src="assets/media/svg/brand-logos/facebook-4.svg" class="h-20px me-2" alt="" />
-											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Facebook</span>
+											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-whatsapp'></i>&nbsp;WhatsApp</span>
 										</a>
 										<!--end::Link-->
+										
 										<!--begin::Link-->
 										<a href="#" class="mb-6">
-											<img src="assets/media/svg/brand-logos/github.svg" class="h-20px me-2" alt="" />
-											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Github</span>
+											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-facebook'></i>&nbsp;Facebook</span>
 										</a>
 										<!--end::Link-->
+										
 										<!--begin::Link-->
 										<a href="#" class="mb-6">
-											<img src="assets/media/svg/brand-logos/twitter.svg" class="h-20px me-2" alt="" />
-											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Twitter</span>
+											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-twitter'></i>&nbsp;Twitter</span>
 										</a>
 										<!--end::Link-->
+										
 										<!--begin::Link-->
 										<a href="#" class="mb-6">
-											<img src="assets/media/svg/brand-logos/dribbble-icon-1.svg" class="h-20px me-2" alt="" />
-											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Dribbble</span>
+											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-instagram'></i>&nbsp;Instagram</span>
 										</a>
 										<!--end::Link-->
+										
 										<!--begin::Link-->
 										<a href="#" class="mb-6">
-											<img src="assets/media/svg/brand-logos/instagram-2-1.svg" class="h-20px me-2" alt="" />
-											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Instagram</span>
+											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-youtube'></i>&nbsp;Youtube</span>
 										</a>
 										<!--end::Link-->
 									</div>
@@ -278,20 +289,14 @@
 								</a>
 								<!--end::Logo image-->
 								<!--begin::Logo image-->
-								<span class="mx-5 fs-6 fw-bold text-gray-600 pt-1" href="https://keenthemes.com">© 2021 Keenthemes Inc.</span>
+								<span class="mx-5 fs-6 fw-bold text-gray-600 pt-1" href="https://keenthemes.com">&copy;&nbsp;{{ date('Y') }}&nbsp;{{ $wb_setting->title }}</span>
 								<!--end::Logo image-->
 							</div>
 							<!--end::Copyright-->
 							<!--begin::Menu-->
 							<ul class="menu menu-gray-600 menu-hover-primary fw-bold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
-								<li class="menu-item">
-									<a href="https://keenthemes.com/faqs" target="_blank" class="menu-link px-2">About</a>
-								</li>
 								<li class="menu-item mx-5">
-									<a href="https://keenthemes.com/support" target="_blank" class="menu-link px-2">Support</a>
-								</li>
-								<li class="menu-item">
-									<a href="" target="_blank" class="menu-link px-2">Purchase</a>
+									<a href="https://keenthemes.com/support" target="_blank" class="menu-link px-2">Contact</a>
 								</li>
 							</ul>
 							<!--end::Menu-->
@@ -331,10 +336,8 @@
 		<script src="{{asset('assets/frontend/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
 		<script src="{{asset('assets/frontend/plugins/custom/typedjs/typedjs.bundle.js') }}"></script>
 		<!--end::Page Vendors Javascript-->
-		<!--begin::Page Custom Javascript(used by this page)-->
-		<script src="{{asset('assets/frontend/js/custom/landing.js') }}"></script>
-		<script src="{{asset('assets/frontend/js/custom/pages/company/pricing.js') }}"></script>
-		<!--end::Page Custom Javascript-->
+		
+		
 		<!--end::Javascript-->
 		
         @yield('javascript')

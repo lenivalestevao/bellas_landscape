@@ -21,18 +21,22 @@ class SettingsTableSeeder extends Seeder
         \DB::table('settings')->insert(array (
             0 => 
             array (
-                'created_at' => NULL,
-                'description' => NULL,
-                'facebook' => NULL,
-                'faveicon' => NULL,
                 'id' => 1,
-                'instagram' => NULL,
+                'title' => 'Bellas Landscape & Concrete',
                 'keywords' => NULL,
-                'logo' => 'gmo3.png',
-                'title' => 'GMO Cookies Shop',
+                'description' => 'Bellas Landscape & Concrete',
+                'logo' => NULL,
+                'faveicon' => NULL,
+                'facebook' => NULL,
                 'twitter' => NULL,
-                'updated_at' => NULL,
+                'instagram' => NULL,
                 'youtube' => NULL,
+                'whatsapp' => NULL,
+                'city_id' => 20890,
+                'address' => NULL,
+                'zip_code' => '73179',
+                'created_at' => NULL,
+                'updated_at' => NULL,
             ),
         ));
         
