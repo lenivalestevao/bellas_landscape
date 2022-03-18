@@ -147,31 +147,56 @@
 		<div class="card mb-4 bg-light text-center">
 			<!--begin::Body-->
 			<div class="card-body py-12">
+				@if($wb_setting->whatsapp)
 				<!--begin::Icon-->
-				<a href="#" class="mx-4">
+				<a href="{{ $wb_setting->whatsapp }}" class="mx-4">
 					<i class='fab fa-whatsapp fs-2hx'></i>
 				</a>
 				<!--end::Icon-->
-					<!--begin::Icon-->
-				<a href="#" class="mx-4">
+				@endif
+				
+				@if($wb_setting->facebook)
+				<!--begin::Icon-->
+				<a href="{{ $wb_setting->facebook }}" class="mx-4">
 					<i class='fab fa-facebook fs-2hx'></i>
 				</a>
 				<!--end::Icon-->
+				@endif
+				
+				@if($wb_setting->twitter)
 				<!--begin::Icon-->
-				<a href="#" class="mx-4">
+				<a href="{{ $wb_setting->twitter }}" class="mx-4">
 					<i class='fab fa-twitter fs-2hx'></i>
 				</a>
 				<!--end::Icon-->
+				@endif
+				
+				
+				@if($wb_setting->instagram)
 				<!--begin::Icon-->
-				<a href="#" class="mx-4">
+				<a href="{{ $wb_setting->instagram }}" class="mx-4">
 					<i class='fab fa-instagram fs-2hx'></i>
 				</a>
 				<!--end::Icon-->
+				@endif
+				
+				
+				@if($wb_setting->youtube)
 				<!--begin::Icon-->
-				<a href="#" class="mx-4">
+				<a href="{{ $wb_setting->youtube }}" class="mx-4">
 					<i class='fab fa-youtube fs-2hx'></i>
 				</a>
 				<!--end::Icon-->
+				@endif
+				
+				@if($wb_setting->tiktok)
+				<!--begin::Icon-->
+				<a href="{{ $wb_setting->tiktok }}" class="mx-4">
+					<i class='fab fa-tiktok fs-2hx'></i>
+				</a>
+				<!--end::Icon-->
+				@endif
+				
 			</div>
 			<!--end::Body-->
 		</div>

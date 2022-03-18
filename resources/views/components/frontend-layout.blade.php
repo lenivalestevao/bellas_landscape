@@ -61,6 +61,7 @@
 
         @livewireStyles
         @yield('style')
+       
     </head>
 
     <body id="kt_body" data-bs-spy="scroll" data-bs-target="#kt_landing_menu" data-bs-offset="200" class="bg-white position-relative">
@@ -69,7 +70,7 @@
 			<!--begin::Header Section-->
 			<div class="mb-0" id="home">
 				<!--begin::Wrapper-->
-				<div class="bgi-no-repeat bgi-size-contain bgi-position-x-center bgi-position-y-bottom landing-dark-bg" style="background-image: url(assets/media/svg/illustrations/landing.svg)">
+				<div class="bgi-no-repeat bgi-size-contain bgi-position-x-center bgi-position-y-bottom landing-dark-bg" style="background-image: url({{ asset('assets/frontend/media/svg/illustrations/landing.svg') }})">
 					<!--begin::Header-->
 					<div class="landing-header" data-kt-sticky="true" data-kt-sticky-name="landing-header" data-kt-sticky-offset="{default: '200px', lg: '300px'}">
 						<!--begin::Container-->
@@ -95,8 +96,8 @@
 									<!--end::Mobile menu toggle-->
 									<!--begin::Logo image-->
 									<a href="{{ route('frontend.home') }}">
-										<img alt="Logo" src="assets/media/logos/logo-landing.svg" class="logo-default h-25px h-lg-30px" />
-										<img alt="Logo" src="assets/media/logos/logo-landing-dark.svg" class="logo-sticky h-20px h-lg-25px" />
+										<img alt="Logo" src="{{ route('images', ['width' => '160','height' => '100', 'type' => 'logo', 'image'=> $wb_setting->logo]) }}" class="logo-default  " />
+										<img alt="Logo" src="{{ route('images', ['width' => '110','height' => '60', 'type' => 'logo', 'image'=> $wb_setting->logo]) }}" class="logo-sticky  " />
 									</a>
 									<!--end::Logo image-->
 								</div>
@@ -162,6 +163,7 @@
 						<!--end::Container-->
 					</div>
 					<!--end::Header-->
+					@yield('sub-header')
 				</div>
 				<!--end::Wrapper-->
 				<!--begin::Curve bottom-->
@@ -235,35 +237,55 @@
 										<h4 class="fw-bolder text-gray-400 mb-6">Stay Connected</h4>
 										<!--end::Subtitle-->
 										
-										<!--begin::Link-->
-										<a href="#" class="mb-6">
-											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-whatsapp'></i>&nbsp;WhatsApp</span>
-										</a>
-										<!--end::Link-->
 										
+										@if($wb_setting->whatsapp)
+    										<!--begin::Link-->
+    										<a href="#" class="mb-6">
+    											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-whatsapp'></i>&nbsp;WhatsApp</span>
+    										</a>
+    										<!--end::Link-->
+										@endif
+										
+										@if($wb_setting->facebook)
 										<!--begin::Link-->
 										<a href="#" class="mb-6">
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-facebook'></i>&nbsp;Facebook</span>
 										</a>
 										<!--end::Link-->
+										@endif
 										
+										@if($wb_setting->twitter)
 										<!--begin::Link-->
 										<a href="#" class="mb-6">
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-twitter'></i>&nbsp;Twitter</span>
 										</a>
 										<!--end::Link-->
+										@endif
 										
+										@if($wb_setting->instagram)
 										<!--begin::Link-->
 										<a href="#" class="mb-6">
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-instagram'></i>&nbsp;Instagram</span>
 										</a>
 										<!--end::Link-->
+										@endif
 										
+										@if($wb_setting->youtube)
 										<!--begin::Link-->
 										<a href="#" class="mb-6">
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-youtube'></i>&nbsp;Youtube</span>
 										</a>
 										<!--end::Link-->
+										@endif
+										
+										@if($wb_setting->tiktoks)
+										<!--begin::Link-->
+										<a href="#" class="mb-6">
+											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-tiktok'></i>&nbsp;TikTok</span>
+										</a>
+										<!--end::Link-->
+										@endif
+										
 									</div>
 									<!--end::Links-->
 								</div>
@@ -284,12 +306,12 @@
 							<!--begin::Copyright-->
 							<div class="d-flex align-items-center order-2 order-md-1">
 								<!--begin::Logo-->
-								<a href="landing.html">
-									<img alt="Logo" src="assets/media/logos/logo-landing.svg" class="h-15px h-md-20px" />
+								<a href="{{ route('frontend.home') }}">
+									<img alt="Logo" src="{{ route('images', ['width' => '120','height' => '65','type' => 'logo', 'image'=> $wb_setting->logo]) }}" class="" />
 								</a>
 								<!--end::Logo image-->
 								<!--begin::Logo image-->
-								<span class="mx-5 fs-6 fw-bold text-gray-600 pt-1" href="https://keenthemes.com">&copy;&nbsp;{{ date('Y') }}&nbsp;{{ $wb_setting->title }}</span>
+								<span class="mx-5 fs-6 fw-bold text-gray-600 pt-1" href="{{ route('frontend.home') }}">&copy;&nbsp;{{ date('Y') }}&nbsp;{{ $wb_setting->title }}</span>
 								<!--end::Logo image-->
 							</div>
 							<!--end::Copyright-->
@@ -341,6 +363,8 @@
 		<!--end::Javascript-->
 		
         @yield('javascript')
+        @yield('script')
+        @yield('scripts')
         @livewireScripts
     </body>
 </html>

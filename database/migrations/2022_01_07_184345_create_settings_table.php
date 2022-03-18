@@ -26,7 +26,7 @@ class CreateSettingsTable extends Migration
             $table->longText("instagram")->nullable();
             $table->longText("youtube")->nullable();
             $table->longText("whatsapp")->nullable();
-            
+            $table->longText("tiktok")->nullable();
             $table->foreignId('city_id')->nullable()->references('id')->on('cities');
             $table->longText("address")->nullable();
             $table->string("zip_code")->nullable();

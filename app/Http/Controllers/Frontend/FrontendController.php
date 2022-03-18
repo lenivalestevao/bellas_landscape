@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Page;
+use App\Models\Service;
 
 class FrontendController extends Controller
 {
@@ -20,8 +21,8 @@ class FrontendController extends Controller
      */
     public function __invoke(Request $request)
     {        
-        $products = Product::orderBy('id','DESC')->limit(12)->get();
-        return view('frontend.home.index', compact('products')); 
+        $services = Service::all();
+        return view('frontend.home.index', compact('services')); 
     }
     
     public function about_us(Request $request){
@@ -41,20 +42,12 @@ class FrontendController extends Controller
         return view('frontend.service.index');
     }
         
-    public function shop(Request $request){
-        $view = $request->input('view','grid');
-        $category = $request->input('category', null);
+    public function show_service($slug){
+        $service = Service::where('slug', $slug)->get()->first();
+        if(!$service)
+            return redirect(route('frontend.home'));
         
-        $exists_category = Category::select(DB::raw("COUNT(*) as nCount"))->where('active', true)->where('categories.slug', $category)->get()->first()->nCount;
-        
-        if($exists_category<=0){
-            $category = null;
-        }
-        
-        return view('frontend.product.index', compact('category','view')); 
+        return view('frontend.service.show', compact('service'));
     }
     
-    public function cart(Request $request){
-        return view('frontend.cart.index'); 
-    }
 }

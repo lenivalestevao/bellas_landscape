@@ -19,11 +19,11 @@ class ImageController extends Controller
         if ($request->has('type') && $request->type == 'logo') {
             $img = ImageIntervention::cache(function ($image) use ($request) {
                 if($request->size)
-                    $image->make(storage_path("{$this->default_dir}gmo3.png"))->fit($request->size);
+                    $image->make(storage_path("{$this->default_dir}{$request->image}"))->fit($request->size);
                else 
-                   $image->make(storage_path("{$this->default_dir}gmo3.png"))->resize(intval($request->width), intval($request->height));
+                   $image->make(storage_path("{$this->default_dir}{$request->image}"))->resize(intval($request->width), intval($request->height));
             }, 1440, true);
-            $img->invert();
+//             $img->invert();
             $img->encode('png', 100);
             return $img->response();
             

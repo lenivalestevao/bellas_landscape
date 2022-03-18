@@ -35,13 +35,7 @@ Route::get('/contact-us', [FrontendController::class, "contact_us"])->name('fron
 Route::get('/portfolio', [FrontendController::class, "portfolio"])->name('frontend.portfolio');
 Route::get('/our-services', [FrontendController::class, "our_services"])->name('frontend.our_services');
 
-// Route::get('/shop', [FrontendController::class, "shop"])->name('frontend.shop');
-
-
-// Route::get('/shop-categories', [FrontendController::class, "shop"])->name('frontend.shop.categories');
-
-// Route::get('/cart', [FrontendController::class, "cart"])->name('frontend.cart');
-// Route::get('/product/{category}/{product}', [FrontendController::class, "product_detail"])->name('frontend.product.detail');
+Route::get('/services/{slug}', [FrontendController::class, 'show_service'])->name('frontend.service.show');
 
 // Utilities
 Route::get('/getLocalImage', ImageController::class)->name('images');
