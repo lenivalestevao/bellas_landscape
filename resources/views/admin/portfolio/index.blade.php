@@ -6,7 +6,7 @@
                 <!--begin::Page title-->
                 <div data-kt-place="true" data-kt-place-mode="prepend" data-kt-place-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="flex-wrap mb-5 page-title d-flex align-items-center me-3 mb-lg-0 lh-1">
                     <!--begin::Title-->
-                    <h1 class="my-1 d-flex align-items-center text-dark fw-bolder fs-3">Page View
+                    <h1 class="my-1 d-flex align-items-center text-dark fw-bolder fs-3">Portfolio View
                         <!--begin::Separator-->
                         <span class="mx-2 border-gray-200 h-20px border-start ms-3"></span>
                         <!--end::Separator-->
@@ -42,15 +42,13 @@
                                		])
                             </div>
                             <!--begin::Card title-->
-                             {{--
                             <!--begin::Card toolbar-->
                             <div class="card-toolbar">
-                           
                                 <!--begin::Toolbar-->
                                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                                  
                                     <!--begin::Add user-->
-                                    <a href='{{ route("admin.pages.create") }}' class="btn btn-light-primary">
+                                    <a href='{{ route("admin.portfolio.create") }}' class="btn btn-light-primary">
                                         <!--begin::Svg Icon | path: icons/duotone/Navigation/Plus.svg-->
                                         <span class="svg-icon svg-icon-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -58,7 +56,7 @@
                                                 <rect fill="#000000" opacity="0.5" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000)" x="4" y="11" width="16" height="2" rx="1"></rect>
                                             </svg>
                                         </span>
-                                        <!--end::Svg Icon-->Add Page
+                                        <!--end::Svg Icon-->new Portfolio
                                     </a>
                                     
                                     
@@ -69,7 +67,6 @@
                                 
                             </div>
                             <!--end::Card toolbar-->
-                            --}}
                         </div>
                         <!--end::Card header-->
                         <!--begin::Card body-->

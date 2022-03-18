@@ -129,6 +129,7 @@
 											</div>
 											<!--end::Menu item-->
 											
+											@if($show_about_us)
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
@@ -136,6 +137,27 @@
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
+											@endif
+											
+											@if($show_terms_of_service)
+											<!--begin::Menu item-->
+											<div class="menu-item">
+												<!--begin::Menu link-->
+												<a class="menu-link nav-link {{request()->route()->getName() == 'frontend.terms_of_service' ? 'active' : ''}} py-3 px-4 px-xxl-6" href="{{ route('frontend.terms_of_service') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Terms of Service</a>
+												<!--end::Menu link-->
+											</div>
+											<!--end::Menu item-->
+											@endif
+											
+											@if($show_privacy_policy)
+											<!--begin::Menu item-->
+											<div class="menu-item">
+												<!--begin::Menu link-->
+												<a class="menu-link nav-link {{request()->route()->getName() == 'frontend.privacy_policy' ? 'active' : ''}} py-3 px-4 px-xxl-6" href="{{ route('frontend.privacy_policy') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Privacy & Policy</a>
+												<!--end::Menu link-->
+											</div>
+											<!--end::Menu item-->
+											@endif
 											
 											<!--begin::Menu item-->
 											<div class="menu-item">

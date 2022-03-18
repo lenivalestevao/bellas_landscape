@@ -67,7 +67,15 @@
                                             <!--begin::User details-->
                        					</td>
                        				@else
-                       					<td>{{ $t->{$c->name} }}</td>
+                           				@if(strpos($c->name, '->') !== false)
+                           					@php 
+                           						$_P =Str::of($c->name)->explode('->');
+                           					@endphp
+                           					<td>{{ $t->{$_P[0]}->{$_P[1]} }}</td>
+                           				@else
+                           					<td>{{ $t->{$c->name} }}</td>
+                           				@endif
+                       					
                    					@endif
                            		@endif
                            	@endforeach

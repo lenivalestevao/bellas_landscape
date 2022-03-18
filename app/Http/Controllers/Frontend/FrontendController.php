@@ -30,9 +30,28 @@ class FrontendController extends Controller
         $page = Page::where('slug','about-us')->get()->first();
         $teams = Team::all();
         
-        return view('frontend.about-us.index', compact('page','teams')); 
+        if($page && $page->is_active)
+            return view('frontend.about-us.index', compact('page','teams')); 
+        else
+            return redirect(route('frontend.home'));
     }
     
+    public function privacy_policy(Request $request){
+        $page = Page::where('slug','privacy-policy')->get()->first();
+        if($page && $page->is_active)
+            return view('frontend.privacy-policy.index', compact('page')); 
+        else
+            return redirect(route('frontend.home'));
+    }
+    
+    public function terms_of_service(Request $request){
+        $page = Page::where('slug','terms-of-service')->get()->first();
+        if($page && $page->is_active)
+            return view('frontend.terms-of-service.index', compact('page')); 
+        else 
+            return redirect(route('frontend.home'));
+    }
+        
     public function contact_us(Request $request){
         
        

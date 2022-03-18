@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminCategoriesController;
 use App\Http\Controllers\Admin\AdminColorsController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminPagesController;
+use App\Http\Controllers\Admin\AdminPortfolioController;
 use App\Http\Controllers\Admin\AdminProductsController;
 use App\Http\Controllers\Admin\AdminServicesController;
 use App\Http\Controllers\Admin\AdminSizesController;
@@ -31,7 +32,13 @@ Route::get('refresh/captcha', function(){
 })->name('api.refresh.captcha');
 
 Route::get('/', FrontendController::class)->name('frontend.home');
+
 Route::get('/about-us', [FrontendController::class, "about_us"])->name('frontend.about_us');
+
+Route::get('/privacy-policy', [FrontendController::class, "privacy_policy"])->name('frontend.privacy_policy');
+
+Route::get('/terms-of-service', [FrontendController::class, "terms_of_service"])->name('frontend.terms_of_service');
+
 Route::get('/contact-us', [FrontendController::class, "contact_us"])->name('frontend.contact_us');
 Route::get('/portfolio', [FrontendController::class, "portfolio"])->name('frontend.portfolio');
 Route::get('/our-services', [FrontendController::class, "our_services"])->name('frontend.our_services');
@@ -132,5 +139,14 @@ Route::middleware(['auth', 'role:super'])->prefix('admin')->name('admin.')->grou
     Route::get('{team}/person', [AdminTeamsController::class, 'edit'])->name('teams.edit');
     Route::post('person/{team}/update', [AdminTeamsController::class, 'update'])->name('teams.update');
     Route::delete('person/{team}/destroy', [AdminTeamsController::class, 'destroy'])->name('teams.destroy');
+    //     end::::ROUTE TEAM
+    
+    //     begin::::ROUTE TEAM
+    Route::get('/portfolio', AdminPortfolioController::class)->name('portfolio');
+    Route::get('portfolio/create', [AdminPortfolioController::class, 'create'])->name('portfolio.create');
+    Route::post('portfolio/store', [AdminPortfolioController::class, 'store'])->name('portfolio.store');
+    Route::get('{portfolio}/portfolio', [AdminPortfolioController::class, 'edit'])->name('portfolio.edit');
+    Route::post('portfolio/{portfolio}/update', [AdminPortfolioController::class, 'update'])->name('portfolio.update');
+    Route::delete('portfolio/{portfolio}/destroy', [AdminPortfolioController::class, 'destroy'])->name('portfolio.destroy');
     //     end::::ROUTE TEAM
 });
