@@ -16,7 +16,8 @@ class CreateTeamsTable extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('job_title')->nullable('Helper');
+            $table->string('job_title')->default('Helper');
+            $table->boolean('is_active')->default(true)->index();
             $table->timestamps();
         });
     }

@@ -132,6 +132,15 @@
 							</a>
 						</div>
 						
+						<div class="menu-item">
+							<a class="menu-link {{ request()->routeIs('admin.teams*') ? 'active' : '' }}" href="{{ route('admin.teams') }}">
+								<span class="menu-bullet">
+									<span class="bullet bullet-dot"></span>
+								</span>
+								<span class="menu-title">Our Team</span>
+							</a>
+						</div>
+						
 						{{--
 						<div class="menu-item">
 							<a class="menu-link {{ request()->routeIs('admin.products*') ? 'active' : '' }}" href="{{ route('admin.products') }}">

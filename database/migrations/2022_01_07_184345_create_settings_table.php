@@ -21,6 +21,7 @@ class CreateSettingsTable extends Migration
             $table->longText("description")->nullable();
             $table->longText("logo")->nullable();
             $table->longText("faveicon")->nullable();
+            $table->longText("email")->nullable();
             $table->longText("facebook")->nullable();
             $table->longText("twitter")->nullable();
             $table->longText("instagram")->nullable();

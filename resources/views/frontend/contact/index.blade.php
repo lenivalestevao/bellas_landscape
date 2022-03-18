@@ -105,6 +105,7 @@
 					<!--end::Subtitle-->
 					<!--begin::Number-->
 					<div class="text-gray-700 fw-bold fs-2">{{ $wb_setting->whatsapp }}</div>
+					<div class="text-gray-700 fw-bold fs-2">{{ $wb_setting->email }}</div>
 					<!--end::Number-->
 				</div>
 				<!--end::Phone-->
@@ -149,7 +150,7 @@
 			<div class="card-body py-12">
 				@if($wb_setting->whatsapp)
 				<!--begin::Icon-->
-				<a href="{{ $wb_setting->whatsapp }}" class="mx-4">
+				<a href="https://wa.me/1{{ preg_replace('/[^0-9]/', '',$wb_setting->whatsapp) }}?text={{ urlencode('can i have a estimate please?') }}" class="mx-4">
 					<i class='fab fa-whatsapp fs-2hx'></i>
 				</a>
 				<!--end::Icon-->
@@ -193,6 +194,14 @@
 				<!--begin::Icon-->
 				<a href="{{ $wb_setting->tiktok }}" class="mx-4">
 					<i class='fab fa-tiktok fs-2hx'></i>
+				</a>
+				<!--end::Icon-->
+				@endif
+				
+				@if($wb_setting->email)
+				<!--begin::Icon-->
+				<a href="mailto:{{ $wb_setting->email }}" class="mx-4">
+					<i class='fas fa-mail-bulk fs-2hx'></i>
 				</a>
 				<!--end::Icon-->
 				@endif

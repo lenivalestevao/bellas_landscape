@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\MyAccountController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminTeamsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -122,4 +123,14 @@ Route::middleware(['auth', 'role:super'])->prefix('admin')->name('admin.')->grou
     Route::post('services/{service}/update', [AdminServicesController::class, 'update'])->name('services.update');
     Route::delete('services/{service}/destroy', [AdminServicesController::class, 'destroy'])->name('services.destroy');
     //     end::::ROUTE SERVICES
+    
+    
+    //     begin::::ROUTE TEAM
+    Route::get('/team', AdminTeamsController::class)->name('teams');
+    Route::get('person/create', [AdminTeamsController::class, 'create'])->name('teams.create');
+    Route::post('person/store', [AdminTeamsController::class, 'store'])->name('teams.store');
+    Route::get('{team}/person', [AdminTeamsController::class, 'edit'])->name('teams.edit');
+    Route::post('person/{team}/update', [AdminTeamsController::class, 'update'])->name('teams.update');
+    Route::delete('person/{team}/destroy', [AdminTeamsController::class, 'destroy'])->name('teams.destroy');
+    //     end::::ROUTE TEAM
 });

@@ -24,7 +24,7 @@
 						<!--end::Image-->
 						@if($page->images()->exists())
 						@php $image = $page->images->first() @endphp
-                    		<img alt="{{ $page->name }}"  src="{{ route('images', ['width' => '1000', 'height' => '400', 'f' => 'page', 'image'=> $image->id]) }}">
+                    		<img alt="{{ $page->name }}"  src="{{ route('images', ['width' => '1000', 'height' => '600', 'f' => 'page', 'image'=> $image->id]) }}">
                         @endif
 						<!--end::Links-->
 					</div>
@@ -64,14 +64,14 @@
 									class="  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
 									id="tns1" style="transform: translate3d(-46.6667%, 0px, 0px);">
 									
-									@for($x = 0; $x <= 10; $x++)
+									@foreach($teams as $team)
 										<!--begin::Item-->
 										<div class="text-center tns-item tns-slide-cloned" aria-hidden="true" tabindex="-1">
 											<!--begin::Photo-->
 											@php
-												$im = "https://ui-avatars.com/api/?name=Hamit Domingues&size=250";
-												if(false)
-													$im = route('images', ['size'=> 200, 'f' => 'team', 'image'=> $image->id]);
+												$im = "https://ui-avatars.com/api/?name={{ $team->name }}&size=250";
+												if($team->images()->exists())
+													$im = route('images', ['size'=> 200, 'f' => 'team', 'image'=> $team->images->first()->id]);
 											@endphp
 											<div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center" style="background-image: url('{{ $im }}')"></div>
 											<!--end::Photo-->
@@ -79,17 +79,17 @@
 											<div class="mb-0">
 												<!--begin::Name-->
 												<a href="#"
-													class="text-dark fw-bolder text-hover-primary fs-3">Hamit Domingues</a>
+													class="text-dark fw-bolder text-hover-primary fs-3">{{ $team->name }}</a>
 												<!--end::Name-->
 												<!--begin::Position-->
-												<div class="text-muted fs-6 fw-bold mt-1">Helper</div>
+												<div class="text-muted fs-6 fw-bold mt-1">{{ $team->job_title }}</div>
 												<!--begin::Position-->
 											</div>
 											<!--end::Person-->
 										</div>
 										<!--end::Item-->
 									
-									@endfor
+									@endforeach
 									
 									
 								</div>

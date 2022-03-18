@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Page;
 use App\Models\Service;
+use App\Models\Team;
 
 class FrontendController extends Controller
 {
@@ -27,18 +28,24 @@ class FrontendController extends Controller
     
     public function about_us(Request $request){
         $page = Page::where('slug','about-us')->get()->first();
-        return view('frontend.about-us.index', compact('page')); 
+        $teams = Team::all();
+        
+        return view('frontend.about-us.index', compact('page','teams')); 
     }
     
     public function contact_us(Request $request){
+        
+       
         return view('frontend.contact.index'); 
     }
     
     public function portfolio(Request $request){
+        
         return view('frontend.portfolio.index');
     }
     
     public function our_services(Request $request){
+        
         return view('frontend.service.index');
     }
         

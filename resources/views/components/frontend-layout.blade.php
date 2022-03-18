@@ -209,7 +209,7 @@
 									<!--end::Title-->
 									<!--begin::Text-->
 									<span class="fw-normal fs-4 text-gray-700">Email us to
-									<a href="https://keenthemes.com/support" class="text-white opacity-50 text-hover-primary">support@keenthemes.com</a></span>
+									<a href="mailto:{{ $wb_setting->email }}" class="text-white opacity-50 text-hover-primary">{{ $wb_setting->email }}</a></span>
 									<!--end::Text-->
 								</div>
 								<!--end::Block-->
@@ -220,7 +220,7 @@
 									<!--end::Title-->
 									<!--begin::Text-->
 									<span class="fw-normal fs-4 text-gray-700">Use Our Custom Development Service.
-									<a href="pages/profile/overview.html" class="text-white opacity-50 text-hover-primary">Click to Get a Quote</a></span>
+									<a href="{{ route('frontend.contact_us') }}" class="text-white opacity-50 text-hover-primary">Click to Get a Quote</a></span>
 									<!--end::Text-->
 								</div>
 								<!--end::Block-->
@@ -240,7 +240,7 @@
 										
 										@if($wb_setting->whatsapp)
     										<!--begin::Link-->
-    										<a href="#" class="mb-6">
+    										<a href="https://wa.me/1{{ preg_replace('/[^0-9]/', '',$wb_setting->whatsapp) }}?text={{ urlencode('can i have a estimate please?') }}" class="mb-6">
     											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-whatsapp'></i>&nbsp;WhatsApp</span>
     										</a>
     										<!--end::Link-->
@@ -248,7 +248,7 @@
 										
 										@if($wb_setting->facebook)
 										<!--begin::Link-->
-										<a href="#" class="mb-6">
+										<a href="{{ $wb_setting->facebook }}" class="mb-6">
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-facebook'></i>&nbsp;Facebook</span>
 										</a>
 										<!--end::Link-->
@@ -256,7 +256,7 @@
 										
 										@if($wb_setting->twitter)
 										<!--begin::Link-->
-										<a href="#" class="mb-6">
+										<a href="{{ $wb_setting->twitter }}" class="mb-6">
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-twitter'></i>&nbsp;Twitter</span>
 										</a>
 										<!--end::Link-->
@@ -264,7 +264,7 @@
 										
 										@if($wb_setting->instagram)
 										<!--begin::Link-->
-										<a href="#" class="mb-6">
+										<a href="{{ $wb_setting->instagram }}" class="mb-6">
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-instagram'></i>&nbsp;Instagram</span>
 										</a>
 										<!--end::Link-->
@@ -272,16 +272,24 @@
 										
 										@if($wb_setting->youtube)
 										<!--begin::Link-->
-										<a href="#" class="mb-6">
+										<a href="{{ $wb_setting->youtube }}" class="mb-6">
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-youtube'></i>&nbsp;Youtube</span>
 										</a>
 										<!--end::Link-->
 										@endif
 										
-										@if($wb_setting->tiktoks)
+										@if($wb_setting->tiktok)
 										<!--begin::Link-->
-										<a href="#" class="mb-6">
+										<a href="{{ $wb_setting->tiktok }}" class="mb-6">
 											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fab fa-tiktok'></i>&nbsp;TikTok</span>
+										</a>
+										<!--end::Link-->
+										@endif
+										
+										@if($wb_setting->email)
+										<!--begin::Link-->
+										<a href="mailto:{{ $wb_setting->email }}" class="mb-6">
+											<span class="text-white opacity-50 text-hover-primary fs-5 mb-6"><i class='fas fa-mail-bulk'></i>&nbsp;E-Mail</span>
 										</a>
 										<!--end::Link-->
 										@endif
@@ -318,7 +326,7 @@
 							<!--begin::Menu-->
 							<ul class="menu menu-gray-600 menu-hover-primary fw-bold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
 								<li class="menu-item mx-5">
-									<a href="https://keenthemes.com/support" target="_blank" class="menu-link px-2">Contact</a>
+									<a href="{{ route('frontend.contact_us') }}" target="_blank" class="menu-link px-2">Contact Us</a>
 								</li>
 							</ul>
 							<!--end::Menu-->
