@@ -25,9 +25,9 @@ class PagesTableSeeder extends Seeder
                 'name' => 'Privacy Policy',
                 'slug' => 'privacy-policy',
                 'html' => NULL,
-                'is_active' => 1,
+                'is_active' => 0,
                 'created_at' => NULL,
-                'updated_at' => NULL,
+                'updated_at' => '2022-03-18 19:33:25',
             ),
             1 => 
             array (
@@ -35,9 +35,9 @@ class PagesTableSeeder extends Seeder
                 'name' => 'Terms of Service',
                 'slug' => 'terms-of-service',
                 'html' => NULL,
-                'is_active' => 1,
+                'is_active' => 0,
                 'created_at' => NULL,
-                'updated_at' => NULL,
+                'updated_at' => '2022-03-18 19:34:42',
             ),
             2 => 
             array (
@@ -49,7 +49,7 @@ class PagesTableSeeder extends Seeder
 <p><strong>Lorem Ipsum</strong><span style="background-color:#ffffff; color:#000000; font-family:&quot;Open Sans&quot;,Arial,sans-serif; font-size:14px">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span></p>',
                 'is_active' => 1,
                 'created_at' => NULL,
-                'updated_at' => '2022-03-18 04:08:36',
+                'updated_at' => '2022-03-18 04:11:39',
             ),
         ));
         
