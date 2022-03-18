@@ -28,7 +28,7 @@ class ServicesTableSeeder extends Seeder
                 'html' => NULL,
                 'is_active' => 1,
                 'created_at' => '2022-03-18 18:57:51',
-                'updated_at' => '2022-03-18 18:57:51',
+                'updated_at' => '2022-03-18 22:26:42',
             ),
             1 => 
             array (
@@ -39,7 +39,7 @@ class ServicesTableSeeder extends Seeder
                 'html' => NULL,
                 'is_active' => 1,
                 'created_at' => '2022-03-18 18:58:06',
-                'updated_at' => '2022-03-18 18:58:06',
+                'updated_at' => '2022-03-18 22:26:50',
             ),
             2 => 
             array (
@@ -50,7 +50,7 @@ class ServicesTableSeeder extends Seeder
                 'html' => NULL,
                 'is_active' => 1,
                 'created_at' => '2022-03-18 18:58:24',
-                'updated_at' => '2022-03-18 18:58:24',
+                'updated_at' => '2022-03-18 22:27:30',
             ),
         ));
         

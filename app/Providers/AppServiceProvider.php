@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Models\Page;
 use App\Models\Setting;
 use Illuminate\Support\Facades\View;
+use App\Models\Menu;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,6 +35,10 @@ class AppServiceProvider extends ServiceProvider
                 View::share('wb_setting', $setting);
             }
             
+            $menus = Menu::where('is_active', true)->get();
+            if($setting){
+                View::share('wb_menu', $menus);
+            }
             
             $show_about_us = false;
             $apage = Page::where('slug','about-us')->get()->first();

@@ -40,6 +40,7 @@ class Tablegeneric extends Component
     
     public function render()
     {
+        
         $_APPNAME = Str::ucfirst(Str::singular($this->table_name));
         $appNamespace = Container::getInstance()->getNamespace();
         $modelNamespace = 'Models\\';
@@ -50,7 +51,7 @@ class Tablegeneric extends Component
         }else{
             $tableTemp = DB::table($this->table_name);
         }
-                
+        
         $columns_table = $this->_columns_table;
         
         $search = $this->search;
@@ -71,8 +72,13 @@ class Tablegeneric extends Component
                 }else{
                     
                     foreach($columns_table as $c){
-                        if(!isset($c->is_date) && !isset($c->is_bool))
-                            $join->orWhere($c->name,'LIKE',"{$search}%");
+                        if(!isset($c->is_date) && !isset($c->is_bool)){
+                            if(strpos($c->name, '->') !== false){
+                                continue;
+                            }else{
+                                $join->orWhere($c->name,'LIKE',"{$search}%");
+                            }
+                        }
                     }
                 }
             });
@@ -82,8 +88,12 @@ class Tablegeneric extends Component
             if($this->column != $c->name)
                 continue;
             
-                $tableTemp = $tableTemp->orderBy($c->name, $this->is_asc);
-                break;
+            if(strpos($c->name, '->') !== false)
+                continue;
+            
+            
+            $tableTemp = $tableTemp->orderBy($c->name, $this->is_asc);
+            break;
         }
         
         

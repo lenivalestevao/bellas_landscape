@@ -4,7 +4,7 @@
 	<div class="aside-logo flex-column-auto" id="kt_aside_logo">
 		<!--begin::Logo-->
 		<a href="{{ route('admin.dashboard') }}">
-			<img alt="Logo" src="{{ route('images', ['size' => '120', 'type' => 'logo']) }}" class=" logo" />
+			<img alt="Logo" src="{{ route('images', ['width' => '120','height' => '65', 'type' => 'logo', 'image'=> $wb_setting->logo]) }}" class=" logo" />
 		</a>
 		<!--end::Logo-->
 		<!--begin::Aside toggler-->
@@ -76,125 +76,30 @@
 						<span class="menu-arrow"></span>
 					</span>
 					<div class="menu-sub menu-sub-accordion menu-active-bg">
-					
-						{{--<div class="menu-item">
-							<a class="menu-link {{ request()->routeIs('admin.categories*') ? 'active' : '' }}" href="{{ route('admin.categories') }}">
-								<span class="menu-bullet">
-									<span class="bullet bullet-dot"></span>
-								</span>
-								<span class="menu-title">Categories</span>
-							</a>
-						</div>
-						
-						<div class="menu-item">
-							<a class="menu-link {{ request()->routeIs('admin.colors*') ? 'active' : '' }}" href="{{ route('admin.colors') }}">
-								<span class="menu-bullet">
-									<span class="bullet bullet-dot"></span>
-								</span>
-								<span class="menu-title">Color</span>
-							</a>
-						</div>
-						
-						<div class="menu-item">
-							<a class="menu-link {{ request()->routeIs('admin.sizes*') ? 'active' : '' }}" href="{{ route('admin.sizes') }}">
-								<span class="menu-bullet">
-									<span class="bullet bullet-dot"></span>
-								</span>
-								<span class="menu-title">Size</span>
-							</a>
-						</div>
-						--}}
-						
-						<div class="menu-item">
-							<a class="menu-link {{ request()->routeIs('admin.users*') ? 'active' : '' }}" href="{{ route('admin.users') }}">
-								<span class="menu-bullet">
-									<span class="bullet bullet-dot"></span>
-								</span>
-								<span class="menu-title">Users</span>
-							</a>
-						</div>
-						
-						<div class="menu-item">
-							<a class="menu-link {{ request()->routeIs('admin.pages*') ? 'active' : '' }}" href="{{ route('admin.pages') }}">
-								<span class="menu-bullet">
-									<span class="bullet bullet-dot"></span>
-								</span>
-								<span class="menu-title">Pages</span>
-							</a>
-						</div>
-						
-						<div class="menu-item">
-							<a class="menu-link {{ request()->routeIs('admin.services*') ? 'active' : '' }}" href="{{ route('admin.services') }}">
-								<span class="menu-bullet">
-									<span class="bullet bullet-dot"></span>
-								</span>
-								<span class="menu-title">Services</span>
-							</a>
-						</div>
-						
-						<div class="menu-item">
-							<a class="menu-link {{ request()->routeIs('admin.teams*') ? 'active' : '' }}" href="{{ route('admin.teams') }}">
-								<span class="menu-bullet">
-									<span class="bullet bullet-dot"></span>
-								</span>
-								<span class="menu-title">Our Team</span>
-							</a>
-						</div>
-						
-						{{--
-						<div class="menu-item">
-							<a class="menu-link {{ request()->routeIs('admin.products*') ? 'active' : '' }}" href="{{ route('admin.products') }}">
-								<span class="menu-bullet">
-									<span class="bullet bullet-dot"></span>
-								</span>
-								<span class="menu-title">Products</span>
-							</a>
-						</div>
-						
-						<div class="menu-item">
-							<a class="menu-link" href="#">
-								<span class="menu-bullet">
-									<span class="bullet bullet-dot"></span>
-								</span>
-								<span class="menu-title">Orders</span>
-							</a>
-						</div>
-						
-						<div class="menu-item">
-							<a class="menu-link" href="#">
-								<span class="menu-bullet">
-									<span class="bullet bullet-dot"></span>
-								</span>
-								<span class="menu-title">Invoices</span>
-							</a>
-						</div>
-							--}}
-					{{--	<div class="menu-item">
-							<a class="menu-link" href="#">
-								<span class="menu-bullet">
-									<span class="bullet bullet-dot"></span>
-								</span>
-								<span class="menu-title">About Us</span>
-							</a>
-						</div> --}}
-						
+						@foreach($wb_menu as $menu)
+    						<div class="menu-item">
+    							<a class='menu-link {{ request()->routeIs("{$menu->route}*") ? "active" : "" }}' href="{{ route($menu->route) }}">
+    								<span class="menu-bullet">
+    									<span class="bullet bullet-dot"></span>
+    								</span>
+    								<span class="menu-title">{{ $menu->title }}</span>
+    							</a>
+    						</div>
+						@endforeach
 					</div>
-					
 					<div class="menu-item">
     					<div class="menu-content pt-8 pb-2">
     						<span class="menu-section text-muted text-uppercase fs-8 ls-1">Website Settings</span>
     					</div>
     				</div>
-    				
     				<div class="menu-item">
-					<a class="menu-link {{ request()->routeIs('admin.settings') ? 'active' : '' }}" href="" >
-						<span class="menu-icon">
-							<i class='bi bi-gear fs-2'></i>
-						</span>
-						<span class="menu-title">Settings</span>
-					</a>
-				</div>
-    				
+    					<a class="menu-link {{ request()->routeIs('admin.settings') ? 'active' : '' }}" href="" >
+    						<span class="menu-icon">
+    							<i class='bi bi-gear fs-2'></i>
+    						</span>
+    						<span class="menu-title">Settings</span>
+    					</a>
+					</div>
 				</div>
 				
 				
