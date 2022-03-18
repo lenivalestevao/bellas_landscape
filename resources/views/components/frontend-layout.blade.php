@@ -110,29 +110,21 @@
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
-												<a class="menu-link nav-link active py-3 px-4 px-xxl-6" href="{{ route('frontend.home') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Home</a>
+												<a class="menu-link nav-link {{request()->route()->getName() == 'frontend.home' ? 'active' : ''}} py-3 px-4 px-xxl-6" href="{{ route('frontend.home') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Home</a>
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
-												<a class="menu-link nav-link py-3 px-4 px-xxl-6" href="{{ route('frontend.our_services') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Our Services</a>
+												<a class="menu-link nav-link {{request()->route()->getName() == 'frontend.our_services' ? 'active' : ''}} py-3 px-4 px-xxl-6" href="{{ route('frontend.our_services') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Our Services</a>
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
-												<a class="menu-link nav-link py-3 px-4 px-xxl-6" href="{{ route('frontend.portfolio') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Porfifolio</a>
-												<!--end::Menu link-->
-											</div>
-											<!--end::Menu item-->
-											
-											<!--begin::Menu item-->
-											<div class="menu-item">
-												<!--begin::Menu link-->
-												<a class="menu-link nav-link py-3 px-4 px-xxl-6" href="{{ route('frontend.about_us') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">About US</a>
+												<a class="menu-link nav-link {{request()->route()->getName() == 'frontend.portfolio' ? 'active' : ''}} py-3 px-4 px-xxl-6" href="{{ route('frontend.portfolio') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Porfifolio</a>
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
@@ -140,7 +132,15 @@
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
-												<a class="menu-link nav-link py-3 px-4 px-xxl-6" href="{{ route('frontend.contact_us') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Contact</a>
+												<a class="menu-link nav-link {{request()->route()->getName() == 'frontend.about_us' ? 'active' : ''}} py-3 px-4 px-xxl-6" href="{{ route('frontend.about_us') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">About US</a>
+												<!--end::Menu link-->
+											</div>
+											<!--end::Menu item-->
+											
+											<!--begin::Menu item-->
+											<div class="menu-item">
+												<!--begin::Menu link-->
+												<a class="menu-link nav-link {{request()->route()->getName() == 'frontend.contact_us' ? 'active' : ''}} py-3 px-4 px-xxl-6" href="{{ route('frontend.contact_us') }}" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Contact</a>
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
