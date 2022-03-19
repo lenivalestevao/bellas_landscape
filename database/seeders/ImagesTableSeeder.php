@@ -107,6 +107,39 @@ class ImagesTableSeeder extends Seeder
                 'created_at' => '2022-03-18 22:27:30',
                 'updated_at' => '2022-03-18 22:27:30',
             ),
+            8 => 
+            array (
+                'id' => 30,
+                'imageable_type' => 'App\\Models\\Portfolio',
+                'imageable_id' => 1,
+                'name' => 'teste',
+                'alt' => 'teste',
+                'src' => 'assets/img/portfolio/Dr1YeODAJZTLZjS8VedFuCsASUdl58U4GJD5NRJL.jpg',
+                'created_at' => '2022-03-19 02:18:58',
+                'updated_at' => '2022-03-19 02:18:58',
+            ),
+            9 => 
+            array (
+                'id' => 32,
+                'imageable_type' => 'App\\Models\\Portfolio',
+                'imageable_id' => 2,
+                'name' => 'Sprinkler Irrigation',
+                'alt' => 'Sprinkler Irrigation',
+                'src' => 'assets/img/portfolio/q2D6ezPcF5Blls3ePNRXmG2r7pAKaVGbb0BenoIs.jpg',
+                'created_at' => '2022-03-19 02:22:32',
+                'updated_at' => '2022-03-19 02:22:32',
+            ),
+            10 => 
+            array (
+                'id' => 34,
+                'imageable_type' => 'App\\Models\\Portfolio',
+                'imageable_id' => 3,
+                'name' => 'Flowerbad',
+                'alt' => 'Flowerbad',
+                'src' => 'assets/img/portfolio/dQbFVSSN2SBD92djZpwAg7zEGfmtDhDaPiZZUxHP.jpg',
+                'created_at' => '2022-03-19 02:23:59',
+                'updated_at' => '2022-03-19 02:23:59',
+            ),
         ));
         
         
