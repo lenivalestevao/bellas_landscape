@@ -184,6 +184,61 @@ class ImagesTableSeeder extends Seeder
                 'created_at' => '2022-03-19 19:07:57',
                 'updated_at' => '2022-03-19 19:07:57',
             ),
+            15 => 
+            array (
+                'id' => 45,
+                'imageable_type' => 'App\\Models\\Portfolio',
+                'imageable_id' => 3,
+                'name' => 'Flowerbad',
+                'alt' => 'Flowerbad',
+                'src' => 'assets/img/portfolio/iup5DfkPBIFQjrPpmUrBuul2Fb8er4pxniq0nKsM.jpg',
+                'created_at' => '2022-03-19 20:37:53',
+                'updated_at' => '2022-03-19 20:37:53',
+            ),
+            16 => 
+            array (
+                'id' => 46,
+                'imageable_type' => 'App\\Models\\Portfolio',
+                'imageable_id' => 3,
+                'name' => 'Flowerbad',
+                'alt' => 'Flowerbad',
+                'src' => 'assets/img/portfolio/vLNUtDvR0VHOr5VU3y1Kv5aEFM8jEvkC7dQOaqKj.jpg',
+                'created_at' => '2022-03-19 20:37:56',
+                'updated_at' => '2022-03-19 20:37:56',
+            ),
+            17 => 
+            array (
+                'id' => 47,
+                'imageable_type' => 'App\\Models\\Portfolio',
+                'imageable_id' => 4,
+                'name' => 'Retaining Wall',
+                'alt' => 'Retaining Wall',
+                'src' => 'assets/img/portfolio/iToTysnjbxWIyaHpqvkZt1EK4WI0m0vSV9ldxW1X.jpg',
+                'created_at' => '2022-03-19 20:39:03',
+                'updated_at' => '2022-03-19 20:39:03',
+            ),
+            18 => 
+            array (
+                'id' => 48,
+                'imageable_type' => 'App\\Models\\Portfolio',
+                'imageable_id' => 4,
+                'name' => 'Retaining Wall',
+                'alt' => 'Retaining Wall',
+                'src' => 'assets/img/portfolio/wGiZyA1FL5hMXAMC39n9JZX7yxjxnIBRFDYPz3h8.jpg',
+                'created_at' => '2022-03-19 20:39:06',
+                'updated_at' => '2022-03-19 20:39:06',
+            ),
+            19 => 
+            array (
+                'id' => 49,
+                'imageable_type' => 'App\\Models\\Portfolio',
+                'imageable_id' => 4,
+                'name' => 'Retaining Wall',
+                'alt' => 'Retaining Wall',
+                'src' => 'assets/img/portfolio/O7HRhLA6gNBnt7WMFysdeEUHaAC6esAPEbm04nyq.jpg',
+                'created_at' => '2022-03-19 20:39:09',
+                'updated_at' => '2022-03-19 20:39:09',
+            ),
         ));
         
         

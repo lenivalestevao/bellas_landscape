@@ -46,6 +46,15 @@ class PortfoliosTableSeeder extends Seeder
                 'created_at' => '2022-03-19 02:23:55',
                 'updated_at' => '2022-03-19 02:23:55',
             ),
+            3 => 
+            array (
+                'id' => 4,
+                'service_id' => 1,
+                'title' => 'Retaining Wall',
+                'is_active' => 1,
+                'created_at' => '2022-03-19 20:38:12',
+                'updated_at' => '2022-03-19 20:38:12',
+            ),
         ));
         
         
