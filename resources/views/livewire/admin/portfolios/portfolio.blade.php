@@ -4,7 +4,6 @@
     	<!--begin::Tabs-->
     	<ul class="nav nav-stretch nav-line-tabs fw-bold border-transparent flex-nowrap" role="tablist" id="kt_layout_builder_tabs">
     		<li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#tab_portfolio" role="tab">Portfolio</a></li>
-    		@if($_id)<li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab_images" role="tab">Images</a></li>@endif
     	</ul>
     	<!--end::Tabs-->
     </div>
@@ -112,16 +111,68 @@
                         <!--begin::Label-->
                     </div>
                     <!--end::Input group-->
-    				
+                    @if($_id)
+                    <div class="py-5 pt-5">
+                		<div class="rounded border p-10">
+                		
+                			<div class="image-input image-input-outline image-input-empty" data-kt-image-input="true" style="background-image: url({{ asset('assets/admin/media/avatars/blank.png') }})">
+                                <!--begin::Preview existing avatar-->
+                                																													
+                                <div class="image-input-wrapper w-125px h-125px" style="background-image: none;"></div>
+                                <!--end::Preview existing avatar-->
+                                <!--begin::Label-->
+                                <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                    <i class="bi bi-pencil-fill fs-7"></i>
+                                    <!--begin::Inputs-->
+                                    <input wire:model='imageUpload' type="file" name="imageUpload" accept=".png, .jpg, .jpeg" />
+                                    <input type="hidden" id="imageUploadRemove" value='' />
+                                    <!--end::Inputs-->
+                                </label>
+                                <!--end::Label-->
+                                <!--begin::Cancel-->
+                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                            		<i class="bi bi-x fs-2"></i>
+                            	</span>
+                                <!--end::Cancel-->
+                                <!--begin::Remove-->
+                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                            		<i class="bi bi-x fs-2"></i>
+                            	</span>
+                                <!--end::Remove-->
+                            </div>
+                				@foreach($_portfolio->images as $iii)
+                					<div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url({{ asset('assets/admin/media/avatars/blank.png') }})">
+                                        <!--begin::Preview existing avatar-->
+                                        																													
+                                        <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{ route('images', ['size' => '150', 'f' => 'portfolio', 'image'=> $iii->id]) }})"></div>
+                                        <!--end::Preview existing avatar-->
+                                        <!--begin::Label-->
+                                        <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                            <i class="bi bi-pencil-fill fs-7"></i>
+                                            <!--begin::Inputs-->
+                                            <input id="image_{{ $iii->id }}" name="image" type="file"  accept=".png, .jpg, .jpeg" />
+                                            <!--end::Inputs-->
+                                        </label>
+                                        <!--end::Label-->
+                                        <!--begin::Cancel-->
+                                        <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                                    		<i class="bi bi-x fs-2"></i>
+                                    	</span>
+                                        <!--end::Cancel-->
+                                        <!--begin::Remove-->
+                                        <span wire:click='removeImage({{ $iii->id }})' class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-white shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                                    		<i class="bi bi-x fs-2"></i>
+                                    	</span>
+                                        <!--end::Remove-->
+                                    </div>
+                					
+                				@endforeach
+                		</div>
+                	</div>
+    				@endif
     			</div>
     			<!--end::Tab pane-->
-    			<!--begin::Tab pane-->
-    			<div class="tab-pane" id="tab_images">
-        			<div class='d-flex flex-column flex-lg-row-fluid gap-7 gap-lg-10'>
-        				
-        			</div>
-    			</div>
-    			<!--end::Tab pane-->
+    		
     		</div>
     	</div>
     	<!--end::Body-->
