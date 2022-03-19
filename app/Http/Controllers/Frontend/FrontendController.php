@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Page;
 use App\Models\Service;
 use App\Models\Team;
+use App\Models\Portfolio;
 
 class FrontendController extends Controller
 {
@@ -53,14 +54,15 @@ class FrontendController extends Controller
     }
         
     public function contact_us(Request $request){
-        
-       
         return view('frontend.contact.index'); 
     }
     
     public function portfolio(Request $request){
+        $portfolios = Portfolio::with('service')->get();
+        $services = Service::all();
         
-        return view('frontend.portfolio.index');
+//         dd($portfolios);
+        return view('frontend.portfolio.index', compact('portfolios', 'services'));
     }
     
     public function our_services(Request $request){
