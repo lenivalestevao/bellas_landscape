@@ -140,6 +140,50 @@ class ImagesTableSeeder extends Seeder
                 'created_at' => '2022-03-19 02:23:59',
                 'updated_at' => '2022-03-19 02:23:59',
             ),
+            11 => 
+            array (
+                'id' => 37,
+                'imageable_type' => 'App\\Models\\Team',
+                'imageable_id' => 2,
+                'name' => 'Joao Domingues',
+                'alt' => 'Joao Domingues',
+                'src' => 'assets/img/team/PVEBHjlkqXFYTAoC9asekFt3wqFYMdV5CibjhRJr.png',
+                'created_at' => '2022-03-19 19:05:20',
+                'updated_at' => '2022-03-19 19:05:20',
+            ),
+            12 => 
+            array (
+                'id' => 38,
+                'imageable_type' => 'App\\Models\\Team',
+                'imageable_id' => 3,
+                'name' => 'Carlos Domingues',
+                'alt' => 'Carlos Domingues',
+                'src' => 'assets/img/team/a54V8MoHrtXXUK9i36sz6zdJYiTihoNDQzY7pPWX.png',
+                'created_at' => '2022-03-19 19:05:33',
+                'updated_at' => '2022-03-19 19:05:33',
+            ),
+            13 => 
+            array (
+                'id' => 39,
+                'imageable_type' => 'App\\Models\\Team',
+                'imageable_id' => 4,
+                'name' => 'Henrique',
+                'alt' => 'Henrique',
+                'src' => 'assets/img/team/eHK94zCWpFZnG3MiZtc4N8s0upXz4oKKTpVl607O.png',
+                'created_at' => '2022-03-19 19:06:30',
+                'updated_at' => '2022-03-19 19:06:30',
+            ),
+            14 => 
+            array (
+                'id' => 40,
+                'imageable_type' => 'App\\Models\\Team',
+                'imageable_id' => 5,
+                'name' => 'Evans Domingues',
+                'alt' => 'Evans Domingues',
+                'src' => 'assets/img/team/2tRjOW5T2WKCnTwqYuG5MOw7isR2KIYGuXFd4bm1.png',
+                'created_at' => '2022-03-19 19:07:57',
+                'updated_at' => '2022-03-19 19:07:57',
+            ),
         ));
         
         
