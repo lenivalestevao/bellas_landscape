@@ -11,8 +11,13 @@ class Service extends Model
     
     protected $table = 'services';
     protected $fillable = ['name', 'slug', 'active'];
+    
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
+    }
+    
+    public function portfolios(){
+        return $this->hasMany(Portfolio::class);
     }
 }

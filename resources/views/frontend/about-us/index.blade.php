@@ -18,13 +18,15 @@
 					</div>
 					<!--end::Top-->
 					<!--begin::Overlay-->
-					<div class="text-center px-4">
+					<div class="text-center px-4 p-10">
 						<!--begin::Image-->
 						
 						<!--end::Image-->
 						@if($page->images()->exists())
 						@php $image = $page->images->first() @endphp
-                    		<img alt="{{ $page->name }}"  src="{{ route('images', ['width' => '1000', 'height' => '600', 'f' => 'page', 'image'=> $image->id]) }}">
+							<div class="overlay">
+                    			<img class='w-100 card-rounded' alt="{{ $page->name }}"  src="{{ route('images', ['width' => '1000', 'height' => '600', 'f' => 'page', 'image'=> $image->id]) }}">
+                    		</div>
                         @endif
 						<!--end::Links-->
 					</div>

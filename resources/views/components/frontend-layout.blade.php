@@ -96,7 +96,7 @@
 									<!--end::Mobile menu toggle-->
 									<!--begin::Logo image-->
 									<a href="{{ route('frontend.home') }}">
-										<img alt="Logo" src="{{ route('images', ['width' => '160','height' => '100', 'type' => 'logo', 'image'=> $wb_setting->logo]) }}" class="logo-default  " />
+										<img alt="Logo" src="{{ route('images', ['width' => '140','height' => '80', 'type' => 'logo', 'image'=> $wb_setting->logo]) }}" class="logo-default  " />
 										<img alt="Logo" src="{{ route('images', ['width' => '110','height' => '60', 'type' => 'logo', 'image'=> $wb_setting->logo]) }}" class="logo-sticky  " />
 									</a>
 									<!--end::Logo image-->

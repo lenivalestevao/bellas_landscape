@@ -189,6 +189,8 @@ class AdminServicesController extends Controller
             $page_slug = $request->name;
        
         $service->name = $request->name;
+        $service->description = $request->description;
+        $service->html = $request->html;
         $service->is_active = intval($request->input('is_active', 0)) == 1;
         $service->slug = Str::slug($page_slug, '-');
 

@@ -74,7 +74,7 @@ class FrontendController extends Controller
         $service = Service::where('slug', $slug)->get()->first();
         if(!$service)
             return redirect(route('frontend.home'));
-        
+          
         return view('frontend.service.show', compact('service'));
     }
     
