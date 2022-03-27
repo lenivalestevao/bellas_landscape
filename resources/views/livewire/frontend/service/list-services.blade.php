@@ -15,12 +15,14 @@
 	
 		@foreach($list_services as $service)
     		<!--begin::Col-->
-    		<div class="col-md-4 px-5">
+    		<div class="col-sm-4 px-5">
     			<!--begin::Story-->
     			<div class="text-center mb-10 mb-md-0">
     				<!--begin::Illustration-->
     				@if($service->images()->exists())
-    					<img src="{{ route('images', ['size' => '300', 'f' => 'service', 'image'=> $service->images->first()->id]) }}" class="mh-225px mb-9 circle" alt="" />
+    					<a href="{{ route('frontend.service.show', $service->slug) }}">
+    						<img src="{{ route('images', ['size' => '300', 'f' => 'service', 'image'=> $service->images->first()->id]) }}" class="mh-225px mb-9 circle" alt="" />
+    					</a>
     				@endif
     				<!--end::Illustration-->
     				<!--begin::Heading-->
