@@ -23,8 +23,7 @@ class FrontendController extends Controller
      */
     public function __invoke(Request $request)
     {        
-        $services = Service::all();
-        return view('frontend.home.index', compact('services')); 
+        return view('frontend.home.index'); 
     }
     
     public function about_us(Request $request){
