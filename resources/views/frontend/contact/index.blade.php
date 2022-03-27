@@ -6,76 +6,7 @@
 			<!--begin::Col-->
 			<div class="col-md-12 pe-lg-10">
 				<!--begin::Form-->
-				<form class="form mb-15">
-					<h1 class="fw-bolder text-dark mb-9">Send Us Email</h1>
-					<!--begin::Input group-->
-					<div class="row mb-5">
-						<!--begin::Col-->
-						<div class="col-md-6 fv-row">
-							<!--begin::Label-->
-							<label class="fs-5 fw-bold mb-2">Name</label>
-							<!--end::Label-->
-							<!--begin::Input-->
-							<input type="text" class="form-control form-control-solid" placeholder="" name="name" />
-							<!--end::Input-->
-						</div>
-						<!--end::Col-->
-						<!--begin::Col-->
-						<div class="col-md-6 fv-row">
-							<!--end::Label-->
-							<label class="fs-5 fw-bold mb-2">Email</label>
-							<!--end::Label-->
-							<!--end::Input-->
-							<input type="text" class="form-control form-control-solid" placeholder="" name="email" />
-							<!--end::Input-->
-						</div>
-						<!--end::Col-->
-					</div>
-					<!--end::Input group-->
-				<!--begin::Input group-->
-					<div class="row mb-5">
-						<!--begin::Col-->
-						<div class="col-md-6 fv-row">
-							<!--begin::Label-->
-							<label class="fs-5 fw-bold mb-2">E-Mail</label>
-							<!--end::Label-->
-							<!--begin::Input-->
-							<input type="text" class="form-control form-control-solid" placeholder="" name="name" />
-							<!--end::Input-->
-						</div>
-						<!--end::Col-->
-						<!--begin::Col-->
-						<div class="col-md-6 fv-row">
-							<!--end::Label-->
-							<label class="fs-5 fw-bold mb-2">Subject</label>
-							<!--end::Label-->
-							<!--end::Input-->
-							<select class='form-control form-control-solid'>
-								<option>...</option>
-								<option>Estimate</option>
-								<option>Appontment</option>
-								<option>Contact</option>
-							</select>
-							<!--end::Input-->
-						</div>
-						<!--end::Col-->
-					</div>
-					<!--begin::Input group-->
-					<div class="d-flex flex-column mb-10 fv-row">
-						<label class="fs-6 fw-bold mb-2">Message</label>
-						<textarea class="form-control form-control-solid" rows="6" name="message" placeholder=""></textarea>
-					</div>
-					<!--end::Input group-->
-					<!--begin::Submit-->
-					<button type="submit" class="btn btn-primary" id="kt_contact_submit_button">
-						<!--begin::Indicator-->
-						<span class="indicator-label">Send Feedback</span>
-						<span class="indicator-progress">Please wait...
-						<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-						<!--end::Indicator-->
-					</button>
-					<!--end::Submit-->
-				</form>
+				@livewire('frontend.contact.contact-form') 
 				<!--end::Form-->
 			</div>
 			<!--end::Col-->

@@ -58,7 +58,7 @@ class ContactEmail extends Mailable
             'name' => Str::Title($this->_name),
             'phone_number' => $this->_phone_number,
             'msg' => $this->_msg,
-            'date' => Carbon::parse($this->_date)->format('d/m/Y g:i A'),
+            'date' => $this->_date ? Carbon::parse($this->_date)->format('d/m/Y g:i A') : null,
             'type' => $this->_type,
             'corp' => $setting->title,
             'logo' => $setting->logo,

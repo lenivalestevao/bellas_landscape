@@ -60,8 +60,7 @@
                                                 @if($name ) name: {{ $name }}<br /> @endif
                                                 @if($phone_number) Phone Number: {{ $phone_number }}<br /> @endif
                                                 @if($date) Date: {{ $date }}<br /> @endif
-                                                @if($type) Type: {{ $type }}<br /> @endif
-                                            
+                                                                                            
                                             @if($msg )
                                             	<br />
                                                Message: {{ $msg }}<br />
