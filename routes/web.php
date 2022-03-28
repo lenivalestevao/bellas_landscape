@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminPagesController;
 use App\Http\Controllers\Admin\AdminPortfolioController;
 use App\Http\Controllers\Admin\AdminProductsController;
 use App\Http\Controllers\Admin\AdminServicesController;
+use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Admin\AdminSizesController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -67,6 +68,9 @@ Route::middleware(['auth', 'role:super'])->prefix('admin')->name('admin.')->grou
     //DASHBOARD ADMIN
     Route::get('/dashboard', AdminDashboardController::class)->name('dashboard');
             
+    Route::get('/website-settings', AdminSettingController::class)->name('settings');
+    
+    
     //     begin::::ROUTE CATEGORIES
     Route::get('/categories', AdminCategoriesController::class)->name('categories');
     Route::get('categories/create', [AdminCategoriesController::class, 'create'])->name('categories.create');
@@ -149,4 +153,7 @@ Route::middleware(['auth', 'role:super'])->prefix('admin')->name('admin.')->grou
     Route::post('portfolio/{portfolio}/update', [AdminPortfolioController::class, 'update'])->name('portfolio.update');
     Route::delete('portfolio/{portfolio}/destroy', [AdminPortfolioController::class, 'destroy'])->name('portfolio.destroy');
     //     end::::ROUTE TEAM
+    
+    
+    
 });

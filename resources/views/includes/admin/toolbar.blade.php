@@ -3415,6 +3415,7 @@
 				<!--end::Menu wrapper-->
 			</div>
 			<!--end::User -->
+			{{--
 			<!--begin::Heaeder menu toggle-->
 			<div class="d-flex align-items-center d-lg-none ms-2 me-n3" title="Show header menu">
 				<div class="btn btn-icon btn-active-light-primary" id="kt_header_menu_mobile_toggle">
@@ -3432,6 +3433,7 @@
 				</div>
 			</div>
 			<!--end::Heaeder menu toggle-->
+			--}}
 		</div>
 		<!--end::Toolbar wrapper-->
 	</div>
