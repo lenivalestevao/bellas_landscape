@@ -7,6 +7,7 @@ use App\Models\Page;
 use App\Models\Setting;
 use Illuminate\Support\Facades\View;
 use App\Models\Menu;
+use App\Models\Alert;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,7 +28,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
         if(!app()->runningInConsole()){
             
             $setting = Setting::get()->first();
@@ -63,7 +63,8 @@ class AppServiceProvider extends ServiceProvider
             
             View::share('show_terms_of_service', $show_terms_of_service);
             
-            
+            $alerts = Alert::where('is_active', true)->get();
+            View::share('alerts', $alerts);
         }
     }
 }
