@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\File;
 use App\Models\User;
 use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class AdminUsersController extends Controller
 {
@@ -49,19 +50,6 @@ class AdminUsersController extends Controller
 
         $columns_table->push($coll);
 
-        $coll = collect();
-        $coll->name = 'facebook_id';
-        $coll->title = 'Facebook';
-        $coll->is_bool = true;
-
-        $columns_table->push($coll);
-
-        $coll = collect();
-        $coll->name = 'google_id';
-        $coll->title = 'Google';
-        $coll->is_bool = true;
-
-        $columns_table->push($coll);
 
         $coll = collect();
         $coll->name = 'created_at';
@@ -106,7 +94,13 @@ class AdminUsersController extends Controller
         $field->title = 'E-Mail';
         $field->is_required = true;
         $fields->push($field);
-        
+                
+        $field = collect();
+        $field->name = 'password';
+        $field->title = 'Password';
+        $field->is_password = true;
+        $fields->push($field);
+                
         $field = collect();
         $field->name = 'role';
         $field->use_role = true;
@@ -161,20 +155,31 @@ class AdminUsersController extends Controller
 
     public function store(Request $request)
     {
-        
         $request->validate([
             'email' => 'required|unique:users',
             'first_name' => 'required',
             'last_name' => 'required',
             'role' => 'required'
         ]);
+        
+        if($request->has('password') && trim($request->password) != ''){
+            $request->validate([
+                'password' => 'required| min:6',
+                'password_confirmation' => 'required|same:password|min:6'
+            ]);
+        }
+        
 
         $user = new User();
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->email;
+        $user->email_verified_at = Carbon::now();
         $user->is_active = intval($request->input('is_active', 0)) == 1;
-        $user->password = Hash::make(Str::uuid());
+        
+        if($request->has('password') && trim($request->password) != '')
+            $user->password = Hash::make($request->password);
+        
         $user->assignRole($request->role);
         $r = $user->save();
 
@@ -213,11 +218,21 @@ class AdminUsersController extends Controller
             'role' => 'required'
         ]);
         
+        if($request->has('password') && trim($request->password) != ''){
+            $request->validate([
+                'password' => 'required| min:6',
+                'password_confirmation' => 'required|same:password|min:6'
+            ]);
+        }
+        
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->email = $request->email;
         $user->is_active = intval($request->input('is_active', 0)) == 1;
-                
+              
+        if($request->has('password') && trim($request->password) != '')
+            $user->password = Hash::make($request->password);
+        
         if(!$user->hasRole($request->role)){
             $user->roles()->detach();
             $user->assignRole($request->role);

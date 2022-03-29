@@ -173,7 +173,7 @@
 	<!--begin::Footer-->
 	<div class="aside-footer flex-column-auto pt-5 pb-7 px-5" id="kt_aside_footer">
 		<span class="btn btn-custom btn-primary w-100" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-delay-show="8000" title="Check out the complete documentation with over 100 components">
-			<span class="btn-label">Kratus Agency</span>
+			<a target="_blank" href="http://www.kratusagency.com/" class="menu-link">Kratus Agency</a>
 			<!--begin::Svg Icon | path: icons/duotone/General/Clipboard.svg-->
 			<span class="svg-icon btn-icon svg-icon-2">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">

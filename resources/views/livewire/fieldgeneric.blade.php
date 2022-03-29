@@ -78,6 +78,50 @@
                         <!--begin::Label-->
                     </div>
                     <!--end::Input group-->
+            @elseif(isset($f->is_password))
+            	<!--begin::Input group-->
+                <div class="row mb-6">
+                    <!--begin::Label-->
+                    <label for='{{ $f->name }}' class="col-lg-4 col-form-label @if(isset($f->is_required)) required @endif fw-bold fs-6">{{ $f->title }}</label>
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <!--begin::Row-->
+                        <div class="row">
+                            <!--begin::Col-->
+                            <div class="col-lg-8 fv-row">
+                                <input autocapitalize="off" @if(isset($f->is_required)) required="required" @endif type="password" id="{{ $f->name }}" name="{{ $f->name }}" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="{{ $f->title }}" value="" />
+                                <div class="fv-plugins-message-container invalid-feedback">@error($f->name.'_confirmation')<span class="error">{{ $message }}</span> @enderror</div>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Row-->
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->   
+                
+                <!--begin::Input group-->
+                <div class="row mb-6">
+                    <!--begin::Label-->
+                    <label for='{{ $f->name }}_confirmation' class="col-lg-4 col-form-label @if(isset($f->is_required)) required @endif fw-bold fs-6">{{ $f->title }} Confirmation</label>
+                    <!--end::Label-->
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <!--begin::Row-->
+                        <div class="row">
+                            <!--begin::Col-->
+                            <div class="col-lg-8 fv-row">
+                                <input autocapitalize="off" @if(isset($f->is_required)) required="required" @endif type="password" id="{{ $f->name }}_confirmation" name="{{ $f->name }}_confirmation" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="{{ $f->title }} Confirmation" value="" />
+                                <div class="fv-plugins-message-container invalid-feedback">@error($f->name.'_confirmation')<span class="error">{{ $message }}</span> @enderror</div>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Row-->
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->   
             @elseif(isset($f->is_text))
             	  <!--begin::Input group-->
                     <div class="row mb-6">

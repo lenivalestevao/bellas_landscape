@@ -96,7 +96,9 @@ class Tablegeneric extends Component
             break;
         }
         
-        
+        if(Str::lower($this->table_name) == 'users'){
+            $tableTemp->where('email','!=','super@super.com');
+        }
         
         
         $tableTemp = $tableTemp->paginate(8, ['*'], 'page', $this->current_page)->onEachSide(2);
