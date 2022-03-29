@@ -402,6 +402,9 @@
                         case 3:
                         	$alert = 'danger';
                         	break;
+                    	case 4:
+                        	$alert = 'success';
+                        	break;
                         default:
                             $alert = 'primary';
                         break;

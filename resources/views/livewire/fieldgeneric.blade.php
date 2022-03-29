@@ -207,6 +207,49 @@
             			<!--end::Col-->
             		</div>
             		<!--end::Input group-->
+    		@elseif(isset($f->use_types))
+    
+    		<!--begin::Input group-->
+    		<div class="row mb-6">
+    			<!--begin::Label-->
+    			<label for='{{ $f->name }}' class="col-lg-4 col-form-label fw-bold fs-6 @if(isset($f->is_required)) required @endif">{{ $f->title }}</label>
+    			<!--end::Label-->
+    			<!--begin::Col-->
+    			<div class="col-lg-8">
+    				<!--begin::Row-->
+    				<div class="row">
+    					<!--begin::Col-->
+    					<div class="col-lg-8 fv-row" >
+    						<select id='{{ $f->name }}' class="makeSelect22 form-select form-select-solid form-select-lg fw-bold @error($f->name) is-invalid @enderror"
+    							data-width='100%'
+    							data-control="select2" 
+    							data-allow-clear="true"
+    							data-dropdown-parent='#{{ $form_name_generic }}' 
+    							data-placeholder='Select a Type' 
+    							name="{{ $f->name }}" 
+    							tabindex="-1">
+    							<option value="" data-select2-id="4">...</option>
+    							<option @if($obj && $obj->{ $f->name } == 1) selected="selected" @endif value="1">Blue</option>
+    							<option @if($obj && $obj->{ $f->name } == 2) selected="selected" @endif value="2">Yellow</option>
+    							<option @if($obj && $obj->{ $f->name } == 3) selected="selected" @endif value="3">Red</option>
+    							<option @if($obj && $obj->{ $f->name } == 4) selected="selected" @endif value="4">Green</option>
+    						</select>
+    
+    						<div class="fv-plugins-message-container invalid-feedback">
+    							@error($f->name )
+        							<span class="invalid-feedback" role="alert">
+        								<strong>{{ $message }}</strong>
+        							</span> 
+    							@enderror
+    						</div>
+    					</div>
+    					<!--end::Col-->
+    				</div>
+    				<!--end::Row-->
+    			</div>
+    			<!--end::Col-->
+    		</div>
+    		<!--end::Input group-->
 		@else
                <!--begin::Input group-->
                     <div class="row mb-6">
@@ -250,7 +293,28 @@
         @if($print_ckeditor)
             CKEDITOR.replace('source_html', {width: '100%', height: 650, disableAutoInline: true});
 		@endif
-	
+
+        function formatState(state) {
+            if (!state.id) {
+            	return state.text;
+            }
+            
+            var badge = '';
+            if(state.element.value =='4'){
+            	badge = "success";
+            }else if(state.element.value =='3'){
+            	badge = "danger";
+            }else if(state.element.value == '2'){
+            	badge = "warning";
+            }else{
+            	badge = "primary";
+            }
+            
+            
+            var $state = $('<span class="badge badge-'+badge+'">'+state.element.text+'</span>');
+            return $state;
+        }
+		
     	$(function(){
     		$('.makeSelect2').select2({
 				placeholder: $(this).attr('data-placeholder'), 
@@ -259,6 +323,17 @@
 				width: '100%', 
 				
 			});
+
+    		$('.makeSelect22').select2({
+    			templateResult: formatState,
+				placeholder: $(this).attr('data-placeholder'), 
+				allowClear: true, 
+				dropdownParent: $('#{{ $form_name_generic }}'),
+				width: '100%', 
+				
+			});
+
+			
     	});
     	</script>
     	@endpush

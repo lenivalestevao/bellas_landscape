@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\Admin\AdminAlertsController;
 use App\Http\Controllers\Admin\AdminCategoriesController;
 use App\Http\Controllers\Admin\AdminColorsController;
 use App\Http\Controllers\Admin\AdminDashboardController;
@@ -156,6 +157,15 @@ Route::middleware(['auth', 'role:super'])->prefix('admin')->name('admin.')->grou
     Route::delete('portfolio/{portfolio}/destroy', [AdminPortfolioController::class, 'destroy'])->name('portfolio.destroy');
     //     end::::ROUTE TEAM
     
+    
+    //     begin::::ALERTS
+    Route::get('/alerts', AdminAlertsController::class)->name('alerts');
+    Route::get('alerts/create', [AdminAlertsController::class, 'create'])->name('alerts.create');
+    Route::post('alerts/store', [AdminAlertsController::class, 'store'])->name('alerts.store');
+    Route::get('{alert}/alerts', [AdminAlertsController::class, 'edit'])->name('alerts.edit');
+    Route::post('alerts/{alert}/update', [AdminAlertsController::class, 'update'])->name('alerts.update');
+    Route::delete('alerts/{alert}/destroy', [AdminAlertsController::class, 'destroy'])->name('alerts.destroy');
+    //     end::::ALERTS
     
     Route::post('/cities-by-state', function(Request $request){
         $cities =  City::select('id','name')->orderBy('name','ASC');
