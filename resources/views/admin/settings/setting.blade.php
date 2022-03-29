@@ -21,4 +21,13 @@
     	<!--end::Container-->
     </div>
     <!--end::Toolbar-->
+    
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <!--begin::Container-->
+        <div class="container">
+            <div class='row'>
+        		@livewire('admin.settings.admin-setting')
+            </div>
+        </div>
+    </div>
 </x-adminLayout>

@@ -14,8 +14,10 @@ use App\Http\Controllers\Admin\AdminSizesController;
 use App\Http\Controllers\Admin\AdminUsersController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\MyAccountController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminTeamsController;
+use App\Models\City;
 
 /*
 |--------------------------------------------------------------------------
@@ -155,5 +157,18 @@ Route::middleware(['auth', 'role:super'])->prefix('admin')->name('admin.')->grou
     //     end::::ROUTE TEAM
     
     
-    
+    Route::post('/cities-by-state', function(Request $request){
+        $cities =  City::select('id','name')->orderBy('name','ASC');
+        
+        if($request->has('state_id')){
+            $cities = $cities->where('state_id', $request->state_id);
+        }
+        
+        if($request->has('search')){
+            $cities = $cities->where('name', 'LIKE',"{$request->search}%");
+        }
+        
+        return $cities->get();
+        
+    })->name('cities.search');
 });
