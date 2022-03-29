@@ -94,4 +94,32 @@ class AdminSetting extends Component
         
         $this->_logo = $_src;
     }
+    
+    public function saveSetting(){
+        $this->_SETTING = Setting::get()->first();
+        
+        $this->_SETTING->title = $this->_title;
+        $this->_SETTING->keywords = $this->_keywords;
+        $this->_SETTING->description = $this->_description;
+        $this->_SETTING->email = $this->_email;
+        $this->_SETTING->facebook = $this->_facebook;
+        $this->_SETTING->twitter = $this->_twitter;
+        $this->_SETTING->instagram = $this->_instagram;
+        $this->_SETTING->youtube = $this->_youtube;
+        $this->_SETTING->whatsapp = $this->_whatsapp;
+        $this->_SETTING->tiktok = $this->_tiktok;
+        $this->_SETTING->city_id = $this->_city_id;
+        $this->_SETTING->address = $this->_address;
+        $this->_SETTING->zip_code = $this->_zipcode;
+        
+        $r = $this->_SETTING->save();
+        
+        
+        if ($r)
+            session()->flash('message', 'Setting updated  with successfully!');
+        else
+            session()->flash('error', 'It was not possible to save the Setting, operation canceled!');
+                
+        return redirect(route('admin.settings'));
+    }
 }

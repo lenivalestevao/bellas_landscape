@@ -303,7 +303,7 @@
                     <div class="row">
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <input model:wire='_youtube' type="text" id="youtube" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"/>
+                            <input wire:model='_youtube' type="text" id="youtube" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"/>
                             <div class="fv-plugins-message-container invalid-feedback">@error('_youtube')<span class="error">{{ $message }}</span> @enderror</div>
                         </div>
                         <!--end::Col-->
@@ -366,10 +366,9 @@
     <div class="card-footer py-8 d-flex justify-content-end px-9">
     	<div class="row">
     		<div class="col-lg-12">
-    			@csrf
     			<input type="hidden" wire:model="categories_image" id='categories_image' />
     			<a href="{{ route('admin.settings') }}" class="btn btn-light-danger btn-light me-2">Cancel</a>
-    			<button type="button" class="btn btn-light-success btn-light me-2">Save</button>
+    			<button wire:click='saveSetting' class="btn btn-light-success btn-light me-2">Save</button>
     		</div>
     	</div>
     </div>
