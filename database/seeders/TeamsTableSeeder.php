@@ -21,12 +21,12 @@ class TeamsTableSeeder extends Seeder
         \DB::table('teams')->insert(array (
             0 => 
             array (
-                'created_at' => '2022-03-18 03:26:06',
                 'id' => 1,
-                'is_active' => 1,
+                'name' => 'Hamit Dominguez',
                 'job_title' => 'Owner',
-                'name' => 'Hamit Domingues',
-                'updated_at' => '2022-03-18 03:27:42',
+                'is_active' => 1,
+                'created_at' => '2022-03-18 03:26:06',
+                'updated_at' => '2022-04-08 17:21:35',
             ),
         ));
         

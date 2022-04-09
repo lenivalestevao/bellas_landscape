@@ -62,6 +62,28 @@ class ServicesTableSeeder extends Seeder
                 'created_at' => '2022-03-18 18:58:24',
                 'updated_at' => '2022-03-18 22:27:30',
             ),
+            3 => 
+            array (
+                'id' => 4,
+                'name' => 'Retaining Wall',
+                'slug' => 'retaining-wall',
+                'description' => NULL,
+                'html' => NULL,
+                'is_active' => 1,
+                'created_at' => '2022-04-08 02:35:59',
+                'updated_at' => '2022-04-08 02:35:59',
+            ),
+            4 => 
+            array (
+                'id' => 5,
+                'name' => 'French Drains',
+                'slug' => 'french-drains',
+                'description' => NULL,
+                'html' => NULL,
+                'is_active' => 1,
+                'created_at' => '2022-04-08 16:28:45',
+                'updated_at' => '2022-04-08 16:28:45',
+            ),
         ));
         
         

@@ -44,12 +44,10 @@ class PagesTableSeeder extends Seeder
                 'id' => 3,
                 'name' => 'About Us',
                 'slug' => 'about-us',
-                'html' => '<p><span style="background-color:#ffffff; color:#000000; font-family:&quot;Open Sans&quot;,Arial,sans-serif; font-size:14px">At </span><strong>Bella&#39;s Landscape &amp; Irrigation</strong><span style="background-color:#ffffff; color:#000000; font-family:&quot;Open Sans&quot;,Arial,sans-serif; font-size:14px"> , we&#39;re dedicated to create and maintain healthy, beautiful lawns in Oklahoma city and Surrounding Cities.</span></p>
-
-<p><strong>Lorem Ipsum</strong><span style="background-color:#ffffff; color:#000000; font-family:&quot;Open Sans&quot;,Arial,sans-serif; font-size:14px">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span></p>',
+                'html' => '<p style="text-align:center"><span style="color:#95a5a6"><span style="background-color:#ffffff">We are a family owned business, located in Tuttle Oklahoma. We have more than 10 years of experience and continue learn to give you the best service.&nbsp; </span>With an integrated mix of services, we are able to provide complete care of your landscape needs. Our staff works throughout the year to provide you with the highest level of service to maximize your value. Continual improvement in our systems and a commitment to developing our team gives us a sustainable competitive advantage when it comes to caring for our customers and their landscapes.</span></p>',
                 'is_active' => 1,
                 'created_at' => NULL,
-                'updated_at' => '2022-03-18 04:11:39',
+                'updated_at' => '2022-04-08 16:02:04',
             ),
         ));
         
