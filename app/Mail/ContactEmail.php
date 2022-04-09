@@ -9,34 +9,60 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Str;
 use App\Models\Service;
 use App\Models\Setting;
+use App\Models\Contact as ContactModel;
 use Carbon\Carbon;
+use App\Models\Telephone;
 
 class ContactEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $_name;
-    public $_phone_number;
+    public $contactModel;
     public $_service_id;
-    public $_date;
-    public $_msg;
-    public $_type;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($_name, $_phone_number, $_msg, $_type = null, $_service_id = null, $_date = null)
+    public function __construct(ContactModel $contactModel, $_service_id)
     {
-        $this->_name = $_name;
-        $this->_phone_number = $_phone_number;
-        $this->_msg = $_msg;
+        $this->contactModel = $contactModel;
         $this->_service_id = $_service_id;
-        $this->_date = $_date;
-        $this->_type = $_type ? $_type : 'Contact';
         
     }
 
+    public function sendTextMessage($number, $carrier, $subject, $msg){
+        
+        $carrier_list = Array(
+            'att'           => 'txt.att.net',
+            'verizon'       => 'vtext.com',
+            'tmobile'       => 'tmomail.net',
+            'sprint'        => 'messaging.sprintpcs.com',
+            'nextel'        => 'messaging.nextel.com'
+        );
+        
+        $smpt_config = config('mail.mailers.smtp');
+        
+        // Create the Transport
+        $transport = (new \Swift_SmtpTransport($smpt_config["host"], $smpt_config["port"]))->setUsername($smpt_config["username"])->setPassword($smpt_config["password"]);
+        
+        // Create the Mailer using your created Transport
+        $mailer = new \Swift_Mailer($transport);
+        
+        $_carrier = $carrier_list[$carrier];
+        
+        // Create a message
+        $message = (new \Swift_Message($subject))
+        ->setFrom([config('mail.from.address') => config('mail.from.name')])
+        ->setTo(["{$number}@{$_carrier}"])
+        ->setBody($msg);
+        
+        // Send the message
+        $result = $mailer->send($message);
+        
+        return $result;
+    }
+    
     /**
      * Build the message.
      *
@@ -50,18 +76,40 @@ class ContactEmail extends Mailable
         }
         
         $setting = Setting::get()->first();
-                
+        
+        $msg_sms = "Hello you receive new ".($service ? $service->name : 'Contact');
+        
+        if($this->contactModel->name) {
+            $msg_sms = $msg_sms . " Name: ".Str::Title($this->contactModel->name);
+        }
+        if($this->contactModel->phone_number) {
+            $msg_sms = $msg_sms . " Phone Number: {$this->contactModel->phone_number}";
+        }
+        if($this->contactModel->date_scheduled) {
+            $msg_sms = $msg_sms . " Date: ".Carbon::parse($this->contactModel->date_scheduled)->format('d/m/Y g:i A');
+        }
+       
+        $msg_sms = $msg_sms . " {$this->contactModel->msg}";
+        
+        $telephones = Telephone::all();
+        foreach($telephones as $t){
+            $this->sendTextMessage($t->number, $t->carrier, ($service ? $service->name : 'contact')." - from website", $msg_sms);
+        }
+        
+//         $this->sendTextMessage("4057549889", "verizon", ($service ? $service->name : 'contact')." - from website", $msg_sms);
+        
         return $this->from(config('mail.from.address'), config('mail.from.name'))
-        ->subject("{$this->_type} - from website bellaslandscape.com")
+        ->subject(($service ? $service->name : 'contact')." - from website bellaslandscape.com")
         ->markdown('mail.user_contact', [
-            'service' => $service ? Str::Title($service->name) : null,
-            'name' => Str::Title($this->_name),
-            'phone_number' => $this->_phone_number,
-            'msg' => $this->_msg,
-            'date' => $this->_date ? Carbon::parse($this->_date)->format('d/m/Y g:i A') : null,
-            'type' => $this->_type,
+            'service' => Str::Title($this->contactModel->service),
+            'name' => Str::Title($this->contactModel->name),
+            'phone_number' => $this->contactModel->phone_number,
+            'msg' => $this->contactModel->msg,
+            'date' => $this->contactModel->date_scheduled,
+            'type' => $service ? $service->name : 'contact',
             'corp' => $setting->title,
             'logo' => $setting->logo,
+            'email' => $this->contactModel->email
         ]);
     }
 }

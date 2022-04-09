@@ -58,6 +58,7 @@
                                             Hello you receive new @if($type) {{ $type }} @endif,<br />
                                             <br /><br />
                                                 @if($name ) name: {{ $name }}<br /> @endif
+                                                @if($email ) name: {{ $email }}<br /> @endif
                                                 @if($phone_number) Phone Number: {{ $phone_number }}<br /> @endif
                                                 @if($date) Date: {{ $date }}<br /> @endif
                                                                                             

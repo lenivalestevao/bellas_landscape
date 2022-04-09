@@ -58,7 +58,7 @@ class AppointmentForm extends Component
             $_contact->is_send = false;
             $_contact->save();
             
-            Mail::to($setting->email)->send(new ContactEmail($this->name, $this->phone_number, $this->msg, 'Appointment', ($this->service_id ? $this->service_id : null), $date_formated));
+            Mail::to($setting->email)->send(new ContactEmail($_contact, $this->service_id));
             
             
             $_contact->is_send = true;

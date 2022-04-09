@@ -55,9 +55,10 @@ class ContactForm extends Component
             $_contact->date_scheduled = null;
             $_contact->msg = $this->contact_msg;
             $_contact->is_send = false;
+            $_contact->email = $this->contact_email;
             $_contact->save();
             
-            Mail::to($setting->email)->send(new ContactEmail($this->contact_name, $this->contact_phone, $this->contact_msg, $_contact->title, ($this->contact_subject ? $this->contact_subject : null), null));
+            Mail::to($setting->email)->send(new ContactEmail($_contact, $this->contact_subject));
             
             
             $_contact->is_send = true;

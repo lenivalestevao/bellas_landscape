@@ -42,7 +42,7 @@
 			<label class="fs-5 fw-bold mb-2">E-Mail</label>
 			<!--end::Label-->
 			<!--begin::Input-->
-			<input type="email" class="form-control form-control-solid contact_email contact_phone @error('contact_email') is-invalid @enderror" wire:model="contact_email" />
+			<input type="email" class="form-control form-control-solid contact_email @error('contact_email') is-invalid @enderror" wire:model="contact_email" />
 			@error('contact_email')
             <div class="invalid-feedback">
                 <strong>{{ $message }}</strong>
