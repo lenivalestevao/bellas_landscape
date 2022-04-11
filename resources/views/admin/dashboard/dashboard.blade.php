@@ -1,4 +1,5 @@
 <x-adminLayout>
+{{--
 	<!--begin::Toolbar-->
     <div class="toolbar" id="kt_toolbar">
     	<!--begin::Container-->
@@ -2567,4 +2568,5 @@
     	<!--end::Container-->
     </div>
     <!--end::Post-->
+    --}}
 </x-adminLayout>
